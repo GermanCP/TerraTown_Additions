@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CPC",
+    "IGS",
+    "CPC"
+  ],
+  
+  "key": {
+    "C": {
+      "item": "minecraft:prismarine_crystals",
+      "data": 0
+    },
+    "P": {
+      "item": "minecraft:prismarine_shard",
+      "data": 0
+    },
+    "I": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:gold_ingot",
+      "data": 0
+    },
+    "S": {
+      "item": "iceandfire:silver_ingot",
+      "data": 0
+    }
+  },
+  
+  "result": {
+    "item": "terratown_additions:raw_neptunium",
+    "data": 0
+  }
+}

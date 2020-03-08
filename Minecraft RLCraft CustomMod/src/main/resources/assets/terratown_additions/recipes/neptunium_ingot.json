@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "pattern": [
-    "   ",
-    "R R",
-    "   "
-  ],
-  "key": {
-    "R": {
-      "item": "terratown_additions:raw_neptunium",
-      "data": 0
+  "ingredients": [
+  
+    {
+    "item": "terratown_additions:raw_neptunium"
+    },
+    
+    {
+    "item": "terratown_additions:raw_neptunium"
     }
-  },
+    
+  ],
+  
   "result": {
     "item": "aquaculture:loot",
     "data": 1
-    "count": 1
   }
 }

@@ -2,9 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "CPC",
-    "IGS",
+    "SGI",
     "CPC"
   ],
+  
   "key": {
     "C": {
       "item": "minecraft:prismarine_crystals",
@@ -27,9 +28,9 @@
       "data": 0
     }
   },
+  
   "result": {
     "item": "terratown_additions:raw_neptunium",
     "data": 0
-	"count": 1
   }
 }

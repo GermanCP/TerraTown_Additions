@@ -2,6 +2,8 @@ package com.terratown.terratown_additions.blocks;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import scala.util.Random;
 
 public class SugarcaneBlock extends BlockBase
 {
@@ -26,5 +28,15 @@ public class SugarcaneBlock extends BlockBase
 		
 	}
 
+	public int quantityDropped(Random rand)
+	{
+		return 1;
+	}
+	
+	//make the block drop itself
+	public Item getItemDropped(int par1, Random random, int par2)
+	{
+		return Item.getItemFromBlock(this);
+	}
 	
 }

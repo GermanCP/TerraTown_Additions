@@ -12,6 +12,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
+import scala.util.Random;
 
 import com.terratown.terratown_additions.Main;
 import com.terratown.terratown_additions.init.ModBlocks;
