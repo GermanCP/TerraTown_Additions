@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "RRR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:reeds",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "terratown_additions:sugarcane_block",
+    "data": 1
+  }
+}
