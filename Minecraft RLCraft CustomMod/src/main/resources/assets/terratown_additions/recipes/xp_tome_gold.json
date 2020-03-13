@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GEG",
+    "EBE",
+    "GEG"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "terratown_additions:xp_tome_iron",
+      "data": 2921
+    }
+  },
+  "result": {
+    "item": "terratown_additions:xp_tome_gold",
+    "data": 5345,
+    "count": 1
+  }
+}

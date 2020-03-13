@@ -1,6 +1,15 @@
 
 //Items
 item.raw_neptunium.name=Unverarbeitetes Neptunium
+item.xp_tome_iron.name=XP Tome Eisen
+item.xp_tome_gold.name=XP Tome Gold
+item.xp_tome_diamond.name=XP Tome Diamant
+item.xp_tome_emerald.name=XP Tome Smaragd
 
 //Blocks
 tile.sugarcane_block.name=Zuckerrohrballen
+
+//XP Tome Tooltips
+xpbook.tooltip.1=Ducken + Rechtsklick um so viel XP wie möglich zu speichern
+xpbook.tooltip.2=Rechtsklick um alle XP herauszuholen
+xpbook.tooltip.3=%1$s/%2$s XP gespeichert
