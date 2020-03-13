@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DED",
+    "EBE",
+    "DED"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "terratown_additions:xp_tome_gold",
+      "data": 5345
+     }
+  },
+  "result": {
+    "item": "terratown_additions:xp_tome_diamond",
+    "data": 8670,
+    "count": 1
+  }
+}

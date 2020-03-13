@@ -6,3 +6,15 @@ item.neptunium_ingot.name=Neptunium Ingot
 //Blocks
 tile.sugarcane_block.name=Sugarcane Bale
 tile.fishglass.name=Fishglassarcane Bale
+
+
+//XP Tomes
+item.xp_tome_iron.name=XP Tome Iron
+item.xp_tome_gold.name=XP Tome Gold
+item.xp_tome_diamond.name=XP Tome Diamond
+item.xp_tome_emerald.name=XP Tome Emerald
+
+//XP Tome Tooltips
+xpbook.tooltip.1=Sneak + right-click to store as much XP as possible
+xpbook.tooltip.2=Right-click to retrieve all XP
+xpbook.tooltip.3=%1$s/%2$s XP stored
