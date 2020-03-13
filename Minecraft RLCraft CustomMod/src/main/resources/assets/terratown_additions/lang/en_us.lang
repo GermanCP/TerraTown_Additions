@@ -1,6 +1,8 @@
 
 //Items
 item.raw_neptunium.name=Raw Neptunium
+item.neptunium_ingot.name=Neptunium Ingot
 
 //Blocks
 tile.sugarcane_block.name=Sugarcane Bale
+tile.fishglass.name=Fishglass

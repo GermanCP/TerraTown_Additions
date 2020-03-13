@@ -1,5 +1,6 @@
 package com.terratown.terratown_additions;
 
+import com.terratown.terratown_additions.init.ModRecipes;
 import com.terratown.terratown_additions.proxy.CommonProxy;
 import com.terratown.terratown_additions.util.Reference;
 
@@ -27,7 +28,7 @@ public class Main {
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-		
+		ModRecipes.init();
 	}
 	
 	@EventHandler

@@ -3,11 +3,11 @@
   "ingredients": [
   
     {
-    "item": "terratown_additions:raw_neptunium"
+    "item": "terratown_additions:neptunium_ingot"
     },
     
     {
-    "item": "terratown_additions:raw_neptunium"
+    "item": "minecraft:water_bucket"
     }
     
   ],

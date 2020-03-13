@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.terratown.terratown_additions.blocks.BlockBase;
+import com.terratown.terratown_additions.blocks.Fishglass;
 import com.terratown.terratown_additions.blocks.SugarcaneBlock;
 
 import net.minecraft.block.Block;
@@ -16,4 +17,5 @@ public class ModBlocks
 	
 	//List of blocks with name and type of block
 	public static final Block SUGARCANE_BLOCK = new SugarcaneBlock("sugarcane_block", Material.GRASS, SoundType.PLANT);
+	public static final Block FISHGLASS = new Fishglass("fishglass", Material.GLASS, SoundType.GLASS);
 }

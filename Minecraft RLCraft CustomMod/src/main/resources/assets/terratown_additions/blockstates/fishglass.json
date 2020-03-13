@@ -1,0 +1,17 @@
+{
+     "variants": {
+                    "fill=0": {
+                        "model": "terratown_additions:fishglass"                   
+                    },
+                    "fill=1": {
+                        "model": "terratown_additions:fishglass_fill1"                   
+                    },
+                    "fill=2": {
+                        "model": "terratown_additions:fishglass_fill2"                   
+                    },
+                    "fill=3": {
+                        "model": "terratown_additions:fishglass_fill3"                   
+                    }
+                }
+
+}

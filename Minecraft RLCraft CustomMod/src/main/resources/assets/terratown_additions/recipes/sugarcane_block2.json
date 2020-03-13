@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+  
+    {
+    "item": "terratown_additions:sugarcane_block"
+    }
+    
+  ],
+  
+  "result": {
+    "item": "minecraft:reeds",
+    "data": 0,
+    "count" : 9
+  }
+}

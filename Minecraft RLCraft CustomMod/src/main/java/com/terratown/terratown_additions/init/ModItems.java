@@ -12,4 +12,5 @@ public class ModItems
 	
 	//list of items with name
 	public static final Item RAW_NEPTUNIUM = new ItemBase("raw_neptunium");
+	public static final Item NEPTUNIUM_INGOT = new ItemBase("neptunium_ingot");
 }
