@@ -50,6 +50,7 @@ public class ContainerFishglass extends Container
 	{
 		super.onContainerClosed(player);
 		glassInventory.closeInventory(player);
+		glassInventory.updateInventory();
 	}
 	
 	

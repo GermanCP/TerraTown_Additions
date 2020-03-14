@@ -24,12 +24,16 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Fishglass extends BlockContainer{
 
 	public static final PropertyInteger FILL = PropertyInteger.create("fill", 0, 3);
+	public static World world;
 	
 	
 	public Fishglass(String name, Material material, SoundType sound) {
@@ -79,14 +83,16 @@ public class Fishglass extends BlockContainer{
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		return this.getDefaultState().withProperty(FILL,meta);
-	}
-	
+		return this.getDefaultState().withProperty(FILL, meta);
+	}	
 	
 	//-------------------------------------------------------------
-	//updating blockstate
-	
-	
+	//update blockstate
+	public void updateBlockstate(int newstate, BlockPos pos, World worldIn)
+	{
+		System.out.println(this.blockState.getValidStates() + " | " + this.getStateFromMeta(newstate)); //= newstate;
+		worldIn.setBlockState(pos, this.getStateFromMeta(newstate), 3);
+	}
 	
 	//-------------------------------------------------------------
 	//render properties
@@ -109,7 +115,7 @@ public class Fishglass extends BlockContainer{
 	        return BlockRenderLayer.TRANSLUCENT;
 	}
 	
-	
+	//-------------------------------------------------------------
 	//cheststuff
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
@@ -121,6 +127,8 @@ public class Fishglass extends BlockContainer{
 		return true;
 	}
 	
+	//-------------------------------------------------------------
+	//breaking the block
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
 	{
@@ -142,12 +150,16 @@ public class Fishglass extends BlockContainer{
 		}
 	}
 	
+	//-------------------------------------------------------------
+	//creating a new tileentity
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta)
 	{
-		return new TileEntityFishglass();
+		return new TileEntityFishglass(this);
 	}
 	
+	//-------------------------------------------------------------
+	//settings
 	public EnumBlockRenderType getRenderType(IBlockState state)
 	{
 		return EnumBlockRenderType.MODEL;
