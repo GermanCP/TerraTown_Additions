@@ -13,4 +13,7 @@ public class Reference {
 	public static final String CLIENT_PROXY_CLASS = "com.terratown.terratown_additions.proxy.ClientProxy";
 	public static final String COMMON_PROXY_CLASS = "com.terratown.terratown_additions.proxy.CommonProxy";
 	
+	
+	//guis
+	public static final int GUI_FISHGLASS = 1;
 }

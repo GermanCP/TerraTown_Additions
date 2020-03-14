@@ -7,6 +7,9 @@ item.neptunium_ingot.name=Neptunium Ingot
 tile.sugarcane_block.name=Sugarcane Bale
 tile.fishglass.name=Fishglass
 
+//Container
+container.fishglass=Fishglass
+
 //XP Tomes
 item.xp_tome_iron.name=XP Tome Iron
 item.xp_tome_gold.name=XP Tome Gold

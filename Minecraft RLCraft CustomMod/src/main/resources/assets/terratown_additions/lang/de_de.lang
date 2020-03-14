@@ -5,7 +5,10 @@ item.neptunium_ingot.name=Neptuniumbarren
 
 //Blocks
 tile.sugarcane_block.name=Zuckerrohrballen
-tile.fishglass.name=Fischglas
+tile.fishglass.name=Fischglass
+
+//Container
+container.fishglass=Fischglass
 
 //XP Tomes
 item.xp_tome_iron.name=XP Tome Eisen
