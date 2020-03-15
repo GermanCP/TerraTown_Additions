@@ -6,6 +6,7 @@ item.neptunium_ingot.name=Neptunium Ingot
 //Blocks
 tile.sugarcane_block.name=Sugarcane Bale
 tile.fishglass.name=Fishglass
+tile.sugarcane_block_deco.name=Sugarcane Bale
 
 //Container
 container.fishglass=Fishglass

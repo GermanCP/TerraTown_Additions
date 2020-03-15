@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+  
+    {
+    "item": "terratown_additions:sugarcane_block_deco"
+    }
+    
+  ],
+  
+  "result": {
+    "item": "terratown_additions:sugarcane_block",
+    "data": 0,
+    "count" : 1
+  }
+}

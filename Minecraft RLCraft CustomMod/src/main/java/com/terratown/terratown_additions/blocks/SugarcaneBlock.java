@@ -18,7 +18,7 @@ public class SugarcaneBlock extends BlockBase
 		//Resistance to explosions
 			setResistance(2.0F);
 		//HarvestLevel
-			setHarvestLevel("hoe", 0);
+			//setHarvestLevel("hoe", 0);
 		//Lightemission
 			//setLightLevel(0);
 		//Light Opacity

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " S ",
     "   ",
+    " S ",
     "   "
   ],
   "key": {
@@ -11,8 +11,8 @@
     }
   },
   "result": {
-    "item": "minecraft:reeds",
+    "item": "terratown_additions:sugarcane_block_deco",
     "data": 0,
-    "count": 9
+    "count": 1
   }
 }
