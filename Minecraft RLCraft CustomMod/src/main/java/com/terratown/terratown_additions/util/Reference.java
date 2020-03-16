@@ -16,4 +16,5 @@ public class Reference {
 	
 	//guis
 	public static final int GUI_FISHGLASS = 1;
+	public static final int GUI_MORTAR = 0;
 }
