@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.terratown.terratown_additions.blocks.BlockBase;
+
+//advanced
 import com.terratown.terratown_additions.blocks.Fishglass;
 import com.terratown.terratown_additions.blocks.SugarcaneBlock;
 import com.terratown.terratown_additions.blocks.SugarcaneBlockDeco;
+import com.terratown.terratown_additions.blocks.MortarBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -23,4 +26,7 @@ public class ModBlocks
 	//decorative blocks
 	public static final Block SUGARCANE_BLOCK_DECO = new SugarcaneBlockDeco("sugarcane_block_deco", Material.GRASS, SoundType.PLANT);
 	
+	//functional block
+	public static final Block MORTAR_BLOCK = new MortarBlock("mortar_block", Material.ROCK, SoundType.STONE);
+
 }
