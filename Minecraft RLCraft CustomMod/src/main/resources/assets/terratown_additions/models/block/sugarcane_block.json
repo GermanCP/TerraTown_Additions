@@ -1,13 +1,13 @@
 {
    "parent": "block/cube",
    "textures": {
-		"particle": "terratown_additions:blocks/sugarcane_block_top",
-		
-		"up": 		"terratown_additions:blocks/sugarcane_block_top",
-		"down":		"terratown_additions:blocks/sugarcane_block_top",
-		"north":	"terratown_additions:blocks/sugarcane_block_side",
-		"south":	"terratown_additions:blocks/sugarcane_block_side",
-		"east":		"terratown_additions:blocks/sugarcane_block_side",
-		"west":		"terratown_additions:blocks/sugarcane_block_side"
+        "particle": "terratown_additions:blocks/sugarcane_block_top",
+        
+        "up":       "terratown_additions:blocks/sugarcane_block_top",
+        "down":     "terratown_additions:blocks/sugarcane_block_top",
+        "north":    "terratown_additions:blocks/sugarcane_block_side",
+        "south":    "terratown_additions:blocks/sugarcane_block_side",
+        "east":     "terratown_additions:blocks/sugarcane_block_side",
+        "west":     "terratown_additions:blocks/sugarcane_block_side"
    }
 }
