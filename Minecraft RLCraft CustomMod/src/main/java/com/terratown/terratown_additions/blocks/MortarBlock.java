@@ -36,6 +36,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool GRINDING = PropertyBool.create("grinding");
+	public static final PropertyBool PESTLE = PropertyBool.create("pestle");
 	
 	public MortarBlock(String name, Material material, SoundType sound) {
 		super(name, material, sound);
@@ -51,7 +52,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 			setCreativeTab(CreativeTabs.DECORATIONS);
 			
 		//Property
-			this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(GRINDING, false));
+			this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(GRINDING, false).withProperty(PESTLE, false));
 		
 	}
 	
