@@ -1,6 +1,8 @@
 package com.terratown.terratown_additions.blocks.tileentity;
 
 import com.terratown.terratown_additions.blocks.MortarBlock;
+import com.terratown.terratown_additions.blocks.container.ContainerMortar;
+import com.terratown.terratown_additions.blocks.recipes.MortarRecipes;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -29,12 +31,16 @@ import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.datafix.walkers.ItemStackDataLists;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityMortarBlock extends TileEntity implements IInventory, ITickable 
 {
+	
 	private static final int[] SLOTS_TOP = new int[] {0};
     private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
     private static final int[] SLOTS_SIDES = new int[] {1, 3};
@@ -46,7 +52,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 	private int currentPestleTime;
 	private int grindTime;
 	private int totalGrindTime;
-	
+
     /**
      * Returns the number of slots in the inventory.
      */
@@ -136,6 +142,12 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     public String getName()
     {
         return this.hasCustomName() ? this.customName : "container.mortar_block";
+    }
+    
+    @Override
+    public ITextComponent getDisplayName()
+    {
+    	return (ITextComponent)(this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName(), new Object[0]));
     }
 	
     /**
@@ -306,7 +318,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
         else
         {
-            ItemStack result = MortarRecipes.instance().getGrindingResult(this.inventoryMortar.get(0),
+            ItemStack result = MortarRecipes.getInstance().getGrindingResult(this.inventoryMortar.get(0),
             		(ItemStack)this.inventoryMortar.get(1));
 
             if (result.isEmpty())

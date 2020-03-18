@@ -7,9 +7,12 @@ item.neptunium_ingot.name=Neptuniumbarren
 tile.sugarcane_block.name=Zuckerrohrballen
 tile.fishglass.name=Fischglass
 tile.sugarcane_block_deco.name=Zuckerrohrballen
+container.mortar_block=Mörser
+
 
 //Container
 container.fishglass=Fischglass
+container.mortar_block=Mörser
 
 //XP Tomes
 item.xp_tome_iron.name=XP Tome Eisen
