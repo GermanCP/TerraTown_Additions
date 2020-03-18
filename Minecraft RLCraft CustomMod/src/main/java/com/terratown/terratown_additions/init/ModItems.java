@@ -14,10 +14,13 @@ public class ModItems
 	public static final Item RAW_NEPTUNIUM = new ItemBase("raw_neptunium");
 	public static final Item NEPTUNIUM_INGOT = new ItemBase("neptunium_ingot");
 
+	
 	//xp-tomes
 	public static final Item XP_TOME_IRON = new ItemBaseXPTome("xp_tome_iron", 2921);
 	public static final Item XP_TOME_GOLD = new ItemBaseXPTome("xp_tome_gold", 5345);
 	public static final Item XP_TOME_DIAMOND = new ItemBaseXPTome("xp_tome_diamond", 8670);
 	public static final Item XP_TOME_EMERALD = new ItemBaseXPTome("xp_tome_emerald", 12895);
+	
+	
 
 }

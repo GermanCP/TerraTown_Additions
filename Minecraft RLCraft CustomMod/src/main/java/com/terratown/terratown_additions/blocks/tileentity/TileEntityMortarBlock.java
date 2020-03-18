@@ -377,7 +377,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
             Item item = pestle.getItem();
             
             /*
-             * Replace olt with Pestle when implemented
+             * Replace old with Pestle when implemented
              */
             
             if(item == Items.STICK) return 100;
