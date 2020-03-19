@@ -1,0 +1,10 @@
+{
+    "multipart": [
+           {
+            "apply": {"model": "terratown_additions:mortar_block"}
+           }
+
+           
+           ]
+
+}

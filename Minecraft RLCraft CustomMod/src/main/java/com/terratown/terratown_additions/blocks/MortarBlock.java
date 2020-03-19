@@ -49,18 +49,30 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 		//HarvestLevel
 			setHarvestLevel("pickaxe", 0);
 			setCreativeTab(CreativeTabs.DECORATIONS);
-			
+		//Light Opacity
+			setLightOpacity(0);	
 		//Property
 			this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(GRINDING, false));
 		
 	}
 	
+	//---------------------------------------------------------------------
+	//make sure blocks behind this are rendered
+	@Override
+	public boolean isOpaqueCube(IBlockState state)
+	{
+		return false;
+	}
+	
+	//---------------------------------------------------------------------
+	//drop the right item if block is destroyed
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) 
 	{
 		return Item.getItemFromBlock(this);	//wenn this net geht ModBlocks.MORTAR_BLOCK
 	}
-	
+
+	//---------------------------------------------------------------------
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) 
 	{
