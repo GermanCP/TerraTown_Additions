@@ -21,12 +21,12 @@ import com.terratown.terratown_additions.util.IHasModel;
 
 public class BlockBase extends Block implements IHasModel{
 	
-	public BlockBase(String name, Material material, SoundType sound)
+	public BlockBase(String name, Material material, SoundType sound, CreativeTabs tab)
 	{
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+		setCreativeTab(tab);
 		setSoundType(sound);
 		
 		ModBlocks.BLOCKS.add(this);

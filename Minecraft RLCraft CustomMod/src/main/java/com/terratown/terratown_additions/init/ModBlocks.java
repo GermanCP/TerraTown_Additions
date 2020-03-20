@@ -3,6 +3,7 @@ package com.terratown.terratown_additions.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.terratown.terratown_additions.Main;
 import com.terratown.terratown_additions.blocks.BlockBase;
 
 //advanced
@@ -20,13 +21,13 @@ public class ModBlocks
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 	
 	//List of blocks with name and type of block
-	public static final Block SUGARCANE_BLOCK = new SugarcaneBlock("sugarcane_block", Material.GRASS, SoundType.PLANT);
-	public static final Block FISHGLASS = new Fishglass("fishglass", Material.GLASS, SoundType.GLASS);
+	public static final Block SUGARCANE_BLOCK = new SugarcaneBlock("sugarcane_block", Material.GRASS, SoundType.PLANT, Main.tabBlocks);
+	public static final Block FISHGLASS = new Fishglass("fishglass", Material.GLASS, SoundType.GLASS, Main.tabDecorationBlocks);
 	
 	//decorative blocks
-	public static final Block SUGARCANE_BLOCK_DECO = new SugarcaneBlockDeco("sugarcane_block_deco", Material.GRASS, SoundType.PLANT);
+	public static final Block SUGARCANE_BLOCK_DECO = new SugarcaneBlockDeco("sugarcane_block_deco", Material.GRASS, SoundType.PLANT, Main.tabDecorationBlocks);
 	
 	//functional block
-	public static final Block MORTAR_BLOCK = new MortarBlock("mortar_block", Material.ROCK, SoundType.STONE);
+	public static final Block MORTAR_BLOCK = new MortarBlock("mortar_block", Material.ROCK, SoundType.STONE, Main.tabCrafting);
 
 }

@@ -36,12 +36,12 @@ public class Fishglass extends BlockContainer{
 	public static World world;
 	
 	
-	public Fishglass(String name, Material material, SoundType sound) {
+	public Fishglass(String name, Material material, SoundType sound, CreativeTabs tab) {
 		super(material);
 		
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(CreativeTabs.DECORATIONS);
+		setCreativeTab(tab);
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(name));

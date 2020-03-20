@@ -37,8 +37,8 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool GRINDING = PropertyBool.create("grinding");
 	
-	public MortarBlock(String name, Material material, SoundType sound) {
-		super(name, material, sound);
+	public MortarBlock(String name, Material material, SoundType sound, CreativeTabs tab) {
+		super(name, material, sound, tab);
 		
 		//set Block properties, adjust as necessary
 		
@@ -48,7 +48,6 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 			setResistance(12.0F);
 		//HarvestLevel
 			setHarvestLevel("pickaxe", 0);
-			setCreativeTab(CreativeTabs.DECORATIONS);
 		//Light Opacity
 			setLightOpacity(0);	
 		//Property

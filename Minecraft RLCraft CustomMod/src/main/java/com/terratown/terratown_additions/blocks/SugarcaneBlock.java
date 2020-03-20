@@ -2,14 +2,15 @@ package com.terratown.terratown_additions.blocks;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import scala.util.Random;
 
 public class SugarcaneBlock extends BlockBase
 {
 
-	public SugarcaneBlock(String name, Material material, SoundType sound) {
-		super(name, material, sound);
+	public SugarcaneBlock(String name, Material material, SoundType sound, CreativeTabs tab) {
+		super(name, material, sound, tab);
 		
 		//set Block properties, adjust as necessary
 		
