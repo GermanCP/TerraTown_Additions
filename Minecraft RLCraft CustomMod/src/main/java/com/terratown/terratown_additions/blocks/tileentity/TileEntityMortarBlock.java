@@ -308,7 +308,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     
 
     /**
-     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
+     * Returns true if the mortar can grind an item, i.e. has a source item, destination stack isn't full, etc.
      */
     private boolean canGrind()
     {

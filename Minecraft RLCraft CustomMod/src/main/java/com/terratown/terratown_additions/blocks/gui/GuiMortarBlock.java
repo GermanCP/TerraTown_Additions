@@ -48,8 +48,8 @@ public class GuiMortarBlock extends GuiContainer
 			this.drawTexturedModalRect(this.guiLeft + 58, this.guiTop + 34 + 15 - k, 178, 15 - k, 15, k + 1);
 			
 
-			int l = this.getGrindProcessScaled(22);
-			this.drawTexturedModalRect(this.guiLeft + 80, this.guiTop + 35, 177, 17, l + 1, 18);
+			int l = this.getGrindProcessScaled(23);
+			this.drawTexturedModalRect(this.guiLeft + 79, this.guiTop + 35, 176, 17, l + 1, 18);
 		}
 		
 	}
