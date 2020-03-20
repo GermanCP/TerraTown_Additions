@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.terratown.terratown_additions.items.ItemBaseXPTome;
+import com.terratown.terratown_additions.items.Pestle;
 
 public class ModItems
 {
@@ -21,7 +22,7 @@ public class ModItems
 	public static final Item NEPTUNIUM_INGOT = new ItemBase("neptunium_ingot", Main.tabItems);
 
 	//crafting tools
-	public static final Item PESTLE = new ItemBase("pestle", Main.tabItems);
+	public static final Item PESTLE = new Pestle("pestle", Main.tabItems, 10, 1);
 	
 	//xp-tomes
 	public static final Item XP_TOME_IRON = new ItemBaseXPTome("xp_tome_iron", 2921);

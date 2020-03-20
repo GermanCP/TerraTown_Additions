@@ -17,6 +17,7 @@ public class SlotMortarBlockPestle extends Slot
 	public boolean isItemValid(ItemStack stack)
 	{
 		return TileEntityMortarBlock.isItemPestle(stack);
+		
 	}
 	
 	@Override

@@ -28,9 +28,13 @@ public class MortarRecipes
 	private MortarRecipes() 
 	{
 		//add Recipes here
+		
+		//1
 		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.YELLOW.getDyeDamage()), 
 				new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage()), 
 				new ItemStack(Items.DYE, 2, EnumDyeColor.ORANGE.getDyeDamage()), 0.1F);
+		
+		//2
 	}
 	
 	public void addMortarRecipes(ItemStack input1, ItemStack input2, ItemStack result, float experience)

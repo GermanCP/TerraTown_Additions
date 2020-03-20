@@ -3,6 +3,8 @@ package com.terratown.terratown_additions.blocks.tileentity;
 import com.terratown.terratown_additions.blocks.MortarBlock;
 import com.terratown.terratown_additions.blocks.container.ContainerMortar;
 import com.terratown.terratown_additions.blocks.recipes.MortarRecipes;
+import com.terratown.terratown_additions.init.ModItems;
+import com.terratown.terratown_additions.items.Pestle;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -34,6 +36,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -52,6 +55,11 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 	private int currentPestleTime;
 	private int grindTime;
 	private int totalGrindTime;
+	
+	private static final int upper	= 0; //input upper
+	private static final int lower	= 1; //input lower
+	private static final int fuel 	= 2; //fuel is in slot 2
+	private static final int out 	= 3; //output
 
     /**
      * Returns the number of slots in the inventory.
@@ -121,7 +129,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         if (index == 0 && index + 1 == 1 && !flag)
         {
         	ItemStack stack1 = (ItemStack)this.inventoryMortar.get(index + 1);
-            this.totalGrindTime = this.getGrindTime(stack, stack1);
+        	//get grindtime depending on slot
+            this.totalGrindTime = this.getGrindTime(this.getStackInSlot(fuel));
             this.grindTime = 0;
             this.markDirty();
         }
@@ -130,9 +139,21 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 	/**
 	 * sets how fast its grinding, increase -> decrease speed
 	 */
-    public int getGrindTime(ItemStack input1, ItemStack input2)
+    public int getGrindTime(ItemStack pestle)
     {
-        return 200;
+    	//define needed variables for determening speed
+    	Item item = pestle.getItem();
+    	int speed = 1;
+    	
+    	//check what type of pestle is used
+    	if(item.equals(ModItems.PESTLE))
+    	{
+    		//assign speed
+    		speed = ((Pestle) item).getGrindTime();
+    	}
+    	
+    	//return basespeed / by speed variable
+        return 500 / speed;
     }
 	
     /**
@@ -242,6 +263,13 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 
         if (!this.world.isRemote)
         {
+        	/*	slots:
+        	 *  0: in up
+        	 *  1: in down
+        	 *  2: fuel
+        	 *  3: out
+        	 */
+        	
             ItemStack itemstack = (ItemStack)this.inventoryMortar.get(2);
 
             if (this.isGrinding() || !itemstack.isEmpty() && !((((ItemStack)this.inventoryMortar.get(0)).isEmpty()) 
@@ -277,8 +305,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
                     if (this.grindTime == this.totalGrindTime)
                     {
                         this.grindTime = 0;
-                        this.totalGrindTime = this.getGrindTime((ItemStack)this.inventoryMortar.get(0), 
-                        		(ItemStack)this.inventoryMortar.get(1));
+                        this.totalGrindTime = this.getGrindTime((ItemStack)this.inventoryMortar.get(fuel));
                         this.grindItem();
                         flag1 = true;
                     }
@@ -365,7 +392,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
  
-    //NEED TO IMPORT PESTLE BEFORE CHANGING ITEMGRINDTIME!!!!!!!!
+    //gets grindtime related to the pestle used
     public static int getItemGrindTime(ItemStack pestle)
     {
         if (pestle.isEmpty())
@@ -380,11 +407,9 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
              * Replace old with Pestle when implemented
              */
             
-            if(item == Items.STICK) return 100;
-            if(item == Items.COAL) return 1600;
-            if(item == Items.LAVA_BUCKET) return 10000;
-            
-            return GameRegistry.getFuelValue(pestle);
+            if(item == ModItems.PESTLE) return ((Pestle)item).getGrindTime();
+
+            return 0;
         }
     }
     
