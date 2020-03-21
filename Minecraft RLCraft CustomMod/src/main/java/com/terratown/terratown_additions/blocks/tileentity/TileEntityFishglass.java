@@ -3,6 +3,7 @@ package com.terratown.terratown_additions.blocks.tileentity;
 import javax.annotation.Nullable;
 
 import com.terratown.terratown_additions.blocks.Fishglass;
+import com.terratown.terratown_additions.blocks.MortarBlock;
 import com.terratown.terratown_additions.blocks.container.ContainerFishglass;
 import com.terratown.terratown_additions.util.Reference;
 
@@ -38,9 +39,9 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 		
 		//-------------------------------------------------------------
 		//constructor
-		public TileEntityFishglass(Fishglass parentIn)
+		public TileEntityFishglass()
 		{
-			parent = parentIn;
+			
 		}
 		
 		//-------------------------------------------------------------
@@ -74,7 +75,7 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 		
 		@Override
 		public void readFromNBT(NBTTagCompound compound)
-		{
+		{		
 			super.readFromNBT(compound);
 			this.glassContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
 			
@@ -83,8 +84,6 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 
 			
 			if(compound.hasKey("CustomName", 8)) this.customName = compound.getString("CustomName");
-			
-				System.out.println("--------------------------------readFromNBT has been called");
 		}
 		
 	    /**
@@ -114,8 +113,6 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 			
 			ItemStackHelper.saveAllItems(compound, glassContents);
 			if(compound.hasKey("CustomName", 8)) compound.setString("CustomName", this.customName);
-			
-			System.out.println("--------------------------------writeToNBT has been called");
 			
 			return compound;
 		}
@@ -193,8 +190,6 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 				}
 			}
 			
-			//System.out.println("-------------------------numberOfItems: " + numberOfItems);
-			
 			//now check how much of the inventory is filled and thereby determine how the block should render
 			if(numberOfItems != 0) {
 			fillstate = (float) glassContents.size() / (float) numberOfItems;
@@ -220,7 +215,7 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 			}
 			
 			//call parent to update blockstate
-			parent.updateBlockstate(state, pos, world);
+			Fishglass.updateBlockstate(state, pos, world);
 		}
 		
 		

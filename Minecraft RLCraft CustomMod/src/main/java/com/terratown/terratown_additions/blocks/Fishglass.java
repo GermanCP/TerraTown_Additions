@@ -103,10 +103,18 @@ public class Fishglass extends BlockContainer implements ITileEntityProvider
 	
 	//-------------------------------------------------------------
 	//update blockstate
-	public void updateBlockstate(int newstate, BlockPos pos, World worldIn)
+	public static void updateBlockstate(int newstate, BlockPos pos, World worldIn)
 	{
-		System.out.println(this.blockState.getValidStates() + " | " + this.getStateFromMeta(newstate)); //= newstate;
-		worldIn.setBlockState(pos, this.getStateFromMeta(newstate), 3);
+			IBlockState state = worldIn.getBlockState(pos);
+			TileEntity tileentity = worldIn.getTileEntity(pos);
+			
+			worldIn.setBlockState(pos, ModBlocks.FISHGLASS.getDefaultState().withProperty(FILL, newstate), 3);
+			
+			if(tileentity != null)
+			{
+				tileentity.validate();
+				worldIn.setTileEntity(pos, tileentity);
+			}
 	}
 	
 	//-------------------------------------------------------------
@@ -157,13 +165,13 @@ public class Fishglass extends BlockContainer implements ITileEntityProvider
 	{
 		if(stack.hasDisplayName())
 		{
-			/*
+			
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 			
 			if(tileentity instanceof TileEntityFishglass) {
 				((TileEntityFishglass)tileentity).setCustomName(stack.getDisplayName());
 			}
-			*/
+			
 		}
 	}
 	
@@ -172,7 +180,7 @@ public class Fishglass extends BlockContainer implements ITileEntityProvider
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta)
 	{
-		return new TileEntityFishglass(this);
+		return new TileEntityFishglass();
 	}
 	
 	//-------------------------------------------------------------
@@ -190,12 +198,6 @@ public class Fishglass extends BlockContainer implements ITileEntityProvider
 	
 	@Override
 	public boolean isFullCube(IBlockState state)
-	{
-		return false;
-	}
-	
-	@Override
-	public boolean hasTileEntity(IBlockState state)
 	{
 		return false;
 	}

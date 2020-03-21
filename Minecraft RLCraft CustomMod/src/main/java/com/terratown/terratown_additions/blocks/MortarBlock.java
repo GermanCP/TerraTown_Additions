@@ -117,8 +117,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 		IBlockState state = worldIn.getBlockState(pos);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 		
-		if(active) worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(GRINDING,  true), 3);
-		else worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(GRINDING, false), 3);
+		worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(GRINDING,  active), 3);
 		
 		if(tileentity != null)
 		{

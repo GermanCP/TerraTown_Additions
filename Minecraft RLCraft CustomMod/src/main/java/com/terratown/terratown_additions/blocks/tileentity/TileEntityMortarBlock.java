@@ -197,7 +197,6 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
             this.customName = compound.getString("CustomName");
         }
         
-        System.out.println("--------------------------------readFromNBT has been called");
     }
     
     @Override
@@ -213,8 +212,6 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         {
             compound.setString("CustomName", this.customName);
         }
-        
-        System.out.println("--------------------------------writeToNBT has been called");
         
         return compound;
     }
@@ -289,6 +286,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 
                             if (itemstack.isEmpty())
                             {
+                            	
                                 ItemStack item1 = item.getContainerItem(itemstack);
                                 this.inventoryMortar.set(2, item1);
                             }
