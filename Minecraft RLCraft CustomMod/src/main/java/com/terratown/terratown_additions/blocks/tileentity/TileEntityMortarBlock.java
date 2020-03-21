@@ -50,16 +50,17 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     
 	private NonNullList<ItemStack> inventoryMortar = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
 	private String customName;
+	private static boolean removeStackFromPestleSlot = false;
 	
-	private int pestleTime;
-	private int currentPestleTime;
-	private int grindTime;
-	private int totalGrindTime;
+	private int pestleTime;				//siehe feuer
+	private int currentPestleTime;		//aktuell feuer
+	private int grindTime;				//siehe pfeil
+	private int totalGrindTime;			//gesamtpfeil
 	
-	private static final int upper	= 0; //input upper
-	private static final int lower	= 1; //input lower
-	private static final int fuel 	= 2; //fuel is in slot 2
-	private static final int out 	= 3; //output
+	private static final int upperSlot	= 0; //input upper
+	private static final int lowerSlot	= 1; //input lower
+	private static final int pestleSlot = 2; //fuel is in slot 2
+	private static final int outSlot 	= 3; //output
 
     /**
      * Returns the number of slots in the inventory.
@@ -130,7 +131,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         {
         	ItemStack stack1 = (ItemStack)this.inventoryMortar.get(index + 1);
         	//get grindtime depending on slot
-            this.totalGrindTime = this.getGrindTime(this.getStackInSlot(fuel));
+            this.totalGrindTime = this.getGrindTime(this.getStackInSlot(pestleSlot));
             this.grindTime = 0;
             this.markDirty();
         }
@@ -141,19 +142,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 	 */
     public int getGrindTime(ItemStack pestle)
     {
-    	//define needed variables for determening speed
-    	Item item = pestle.getItem();
-    	int speed = 1;
-    	
-    	//check what type of pestle is used
-    	if(item.equals(ModItems.PESTLE))
-    	{
-    		//assign speed
-    		speed = ((Pestle) item).getGrindTime();
-    	}
-    	
-    	//return basespeed / by speed variable
-        return 500 / speed;
+    	return MortarBlock.GrindSpeed;
     }
 	
     /**
@@ -287,7 +276,11 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
                         if (!itemstack.isEmpty())
                         {
                             Item item = itemstack.getItem();
-                            itemstack.shrink(1);
+                            if(removeStackFromPestleSlot == true) {
+                            	itemstack.shrink(1);
+                            	removeStackFromPestleSlot = false;
+                            }
+                            // itemstack.shrink(1);
 
                             if (itemstack.isEmpty())
                             {
@@ -305,7 +298,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
                     if (this.grindTime == this.totalGrindTime)
                     {
                         this.grindTime = 0;
-                        this.totalGrindTime = this.getGrindTime((ItemStack)this.inventoryMortar.get(fuel));
+                        this.totalGrindTime = this.getGrindTime((ItemStack)this.inventoryMortar.get(pestleSlot));
                         this.grindItem();
                         flag1 = true;
                     }
@@ -395,22 +388,17 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     //gets grindtime related to the pestle used
     public static int getItemGrindTime(ItemStack pestle)
     {
-        if (pestle.isEmpty())
-        {
-            return 0;
-        }
-        else
-        {
-            Item item = pestle.getItem();
-            
-            /*
-             * Replace old with Pestle when implemented
-             */
-            
-            if(item == ModItems.PESTLE) return ((Pestle)item).getGrindTime();
-
-            return 0;
-        }
+    	Item item = pestle.getItem();
+    	if(item == ModItems.PESTLE) {
+    		
+    		item.setDamage(pestle, item.getDamage(pestle) + 1);
+    		if(item.getDamage(pestle) == item.getMaxDamage())
+    		{
+    			removeStackFromPestleSlot = true;
+    		}
+    		return (MortarBlock.GrindSpeed);
+    	}
+    	return 0;
     }
     
     public static boolean isItemPestle(ItemStack stack)

@@ -23,7 +23,7 @@ public class SlotMortarBlockPestle extends Slot
 	@Override
 	public int getItemStackLimit(ItemStack stack)
 	{
-		return super.getItemStackLimit(stack);
+		return 1;
 	}
 
 	

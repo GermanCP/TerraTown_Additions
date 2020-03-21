@@ -28,6 +28,7 @@ public class ModBlocks
 	public static final Block SUGARCANE_BLOCK_DECO = new SugarcaneBlockDeco("sugarcane_block_deco", Material.GRASS, SoundType.PLANT, Main.tabDecorationBlocks);
 	
 	//functional block
-	public static final Block MORTAR_BLOCK = new MortarBlock("mortar_block", Material.ROCK, SoundType.STONE, Main.tabCrafting);
+	public static final Block MORTAR_BLOCK = new MortarBlock("mortar_block", Material.ROCK, SoundType.STONE, Main.tabCrafting, 200);
+	//public static final Block MORTAR_BLOCK_ADVANCED = new MortarBlock("mortar_block_advanced", Material.ROCK, SoundType.STONE, Main.tabCrafting, 100);
 
 }

@@ -36,8 +36,9 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool GRINDING = PropertyBool.create("grinding");
+	public static int GrindSpeed;
 	
-	public MortarBlock(String name, Material material, SoundType sound, CreativeTabs tab) {
+	public MortarBlock(String name, Material material, SoundType sound, CreativeTabs tab, int grindspeed) {
 		super(name, material, sound, tab);
 		
 		//set Block properties, adjust as necessary
@@ -52,6 +53,8 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 			setLightOpacity(0);	
 		//Property
 			this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(GRINDING, false));
+		//Grindspeed
+			GrindSpeed = grindspeed;
 		
 	}
 	
