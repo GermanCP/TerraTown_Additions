@@ -5,6 +5,7 @@ import com.terratown.terratown_additions.blocks.container.ContainerMortar;
 import com.terratown.terratown_additions.blocks.recipes.MortarRecipes;
 import com.terratown.terratown_additions.init.ModItems;
 import com.terratown.terratown_additions.items.Pestle;
+import com.terratown.terratown_additions.util.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -195,6 +196,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         {
             this.customName = compound.getString("CustomName");
         }
+        
+        System.out.println("--------------------------------readFromNBT has been called");
     }
     
     @Override
@@ -210,7 +213,9 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         {
             compound.setString("CustomName", this.customName);
         }
-
+        
+        System.out.println("--------------------------------writeToNBT has been called");
+        
         return compound;
     }
     
@@ -489,7 +494,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     
     public String getGuiID()
     {
-        return "terratown_additions:mortar_block";
+        return Reference.MOD_ID + ":mortar_block";
     }
     
     public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)

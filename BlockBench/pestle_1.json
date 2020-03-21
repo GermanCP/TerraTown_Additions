@@ -1,0 +1,92 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "Minecraft ressources:blocks/stone"
+	},
+	"elements": [
+		{
+			"name": "handlering",
+			"from": [6.75, 12.47597, 6.87902],
+			"to": [9.25, 13.47597, 9.37902],
+			"color": 1,
+			"faces": {
+				"north": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"east": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2.5, 2.5], "texture": "#missing"},
+				"down": {"uv": [0, 0, 2.5, 2.5], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "handle",
+			"from": [7, 6.67597, 7.12902],
+			"to": [9, 13.67597, 9.12902],
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"east": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "maincube",
+			"from": [6.5, 3.67597, 6.62902],
+			"to": [9.5, 6.67597, 9.62902],
+			"color": 1,
+			"faces": {
+				"north": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"east": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"south": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"west": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "kugel_p1",
+			"from": [6, 4.17597, 7.12902],
+			"to": [10, 6.17597, 9.12902],
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"east": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"south": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2, 4], "rotation": 270, "texture": "#missing"},
+				"down": {"uv": [0, 0, 2, 4], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"name": "kugel_p2",
+			"from": [7, 4.17597, 6.12902],
+			"to": [9, 6.17597, 10.12902],
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"east": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"west": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2, 4], "texture": "#missing"},
+				"down": {"uv": [0, 0, 2, 4], "texture": "#missing"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [32, 0, 0],
+			"translation": [0, 3.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "pestle",
+			"origin": [8, 8, 8],
+			"children": [0, 1, 2, 3, 4]
+		}
+	]
+}

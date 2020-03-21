@@ -22,6 +22,8 @@ public class ModBlocks
 	
 	//List of blocks with name and type of block
 	public static final Block SUGARCANE_BLOCK = new SugarcaneBlock("sugarcane_block", Material.GRASS, SoundType.PLANT, Main.tabBlocks);
+	
+	//storage blocks
 	public static final Block FISHGLASS = new Fishglass("fishglass", Material.GLASS, SoundType.GLASS, Main.tabDecorationBlocks);
 	
 	//decorative blocks

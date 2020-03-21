@@ -1,0 +1,97 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "Minecraft ressources:blocks/stone"
+	},
+	"elements": [
+		{
+			"name": "handlering",
+			"from": [6.75, 13.56723, 6.33782],
+			"to": [9.25, 14.56723, 8.83782],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 1,
+			"faces": {
+				"north": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"east": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2.5, 1], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2.5, 2.5], "texture": "#missing"},
+				"down": {"uv": [0, 0, 2.5, 2.5], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "handle",
+			"from": [7, 7.76723, 6.58782],
+			"to": [9, 14.76723, 8.58782],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"east": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 7], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "maincube",
+			"from": [6.5, 4.76723, 6.08782],
+			"to": [9.5, 7.76723, 9.08782],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 1,
+			"faces": {
+				"north": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"east": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"south": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"west": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#missing"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "kugel_p1",
+			"from": [6, 5.26723, 6.58782],
+			"to": [10, 7.26723, 8.58782],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"east": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"south": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2, 4], "rotation": 270, "texture": "#missing"},
+				"down": {"uv": [0, 0, 2, 4], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"name": "kugel_p2",
+			"from": [7, 5.26723, 5.58782],
+			"to": [9, 7.26723, 9.58782],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"east": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"west": {"uv": [0, 0, 4, 2], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2, 4], "texture": "#missing"},
+				"down": {"uv": [0, 0, 2, 4], "texture": "#missing"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [32, 0, 0],
+			"translation": [0, 3.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "pestle",
+			"origin": [8, 8, 8],
+			"children": [0, 1, 2, 3, 4]
+		}
+	]
+}

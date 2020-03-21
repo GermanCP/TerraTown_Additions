@@ -1,0 +1,99 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "minecraft:blocks/stone",
+        "wood": "terratown_additions:blocks/handle",
+        "gold": "minecraft:blocks/gold_block"
+	},
+	"elements": [
+		{
+			"name": "handlering",
+			"from": [6.75, 13.78253, 6.33782],
+			"to": [9.25, 14.78253, 8.83782],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 1,
+			"faces": {
+				"north": {"uv": [0, 0, 2.5, 1], "texture": "#gold"},
+				"east": {"uv": [0, 0, 2.5, 1], "texture": "#gold"},
+				"south": {"uv": [0, 0, 2.5, 1], "texture": "#gold"},
+				"west": {"uv": [0, 0, 2.5, 1], "texture": "#gold"},
+				"up": {"uv": [0, 0, 2.5, 2.5], "texture": "#gold"},
+				"down": {"uv": [0, 0, 2.5, 2.5], "texture": "#gold"}
+			}
+		},
+		{
+			"name": "handle",
+			"from": [7, 7.98253, 6.58782],
+			"to": [9, 14.98253, 8.58782],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 7], "texture": "#wood"},
+				"east": {"uv": [0, 0, 2, 7], "texture": "#wood"},
+				"south": {"uv": [0, 0, 2, 7], "texture": "#wood"},
+				"west": {"uv": [0, 0, 2, 7], "texture": "#wood"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#wood"}
+			}
+		},
+		{
+			"name": "maincube",
+			"from": [6.5, 4.98253, 6.08782],
+			"to": [9.5, 7.98253, 9.08782],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 1,
+			"faces": {
+				"north": {"uv": [0, 0, 3, 3], "texture": "#wood"},
+				"east": {"uv": [0, 0, 3, 3], "texture": "#wood"},
+				"south": {"uv": [0, 0, 3, 3], "texture": "#wood"},
+				"west": {"uv": [0, 0, 3, 3], "texture": "#wood"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#wood"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#wood"}
+			}
+		},
+		{
+			"name": "kugel_p1",
+			"from": [6, 5.48253, 6.58782],
+			"to": [10, 7.48253, 8.58782],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2], "texture": "#wood"},
+				"east": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"south": {"uv": [0, 0, 4, 2], "texture": "#wood"},
+				"west": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"up": {"uv": [0, 0, 2, 4], "rotation": 270, "texture": "#wood"},
+				"down": {"uv": [0, 0, 2, 4], "rotation": 90, "texture": "#wood"}
+			}
+		},
+		{
+			"name": "kugel_p2",
+			"from": [7, 5.48253, 5.58782],
+			"to": [9, 7.48253, 9.58782],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"east": {"uv": [0, 0, 4, 2], "texture": "#wood"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"west": {"uv": [0, 0, 4, 2], "texture": "#wood"},
+				"up": {"uv": [0, 0, 2, 4], "texture": "#wood"},
+				"down": {"uv": [0, 0, 2, 4], "texture": "#wood"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [32, 0, 0],
+			"translation": [0, 3.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "pestle",
+			"origin": [8, 8, 8],
+			"children": [0, 1, 2, 3, 4]
+		}
+	]
+}

@@ -5,25 +5,26 @@ import com.terratown.terratown_additions.blocks.tileentity.TileEntityFishglass;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerFishglass extends Container
 {
 	private final int numRows;
-	private final TileEntityFishglass glassInventory;
+	private final TileEntityFishglass tileentity;
 	
-	public ContainerFishglass(InventoryPlayer playerInv, TileEntityFishglass glassInventory, EntityPlayer player)
+	public ContainerFishglass(InventoryPlayer playerInv, TileEntityFishglass tileentity, EntityPlayer player)
 	{
-		this.glassInventory = glassInventory;
-		this.numRows = glassInventory.getSizeInventory() / 9;
-		glassInventory.openInventory(player);
+		this.tileentity = tileentity;
+		this.numRows = tileentity.getSizeInventory() / 9;
+		tileentity.openInventory(player);
 		
 		for(int i = 0; i < this.numRows; i++)
 		{
 			for(int j = 0; j < 9; j++)
 			{
-				this.addSlotToContainer(new Slot(glassInventory, j + i * 9, 8 + j * 18, 18 + i * 18));
+				this.addSlotToContainer(new Slot(tileentity, j + i * 9, 8 + j * 18, 18 + i * 18));
 			}
 		}
 		
@@ -40,17 +41,29 @@ public class ContainerFishglass extends Container
 		}
 	}
 	
+	//--------------------------------------------------------------------------------
+	//listener
+	@Override
+	public void addListener(IContainerListener listener) 
+	{
+		super.addListener(listener);
+		listener.sendAllWindowProperties(this, this.tileentity);
+	}
+	
+	//--------------------------------------------------------------------------------
+	//player interaction
 	@Override
 	public boolean canInteractWith(EntityPlayer player)
 	{
-		return this.glassInventory.isUsableByPlayer(player);
+		return this.tileentity.isUsableByPlayer(player);
 	}
+	
 	
 	public void onContainerClosed(EntityPlayer player)
 	{
 		super.onContainerClosed(player);
-		glassInventory.closeInventory(player);
-		glassInventory.updateInventory();
+		tileentity.closeInventory(player);
+		tileentity.updateInventory();
 	}
 	
 	
@@ -89,4 +102,5 @@ public class ContainerFishglass extends Container
  
         return itemstack;
     }
+	
 }

@@ -6,6 +6,7 @@ import com.terratown.terratown_additions.init.ModRecipes;
 import com.terratown.terratown_additions.proxy.CommonProxy;
 import com.terratown.terratown_additions.util.Reference;
 import com.terratown.terratown_additions.util.handlers.RegistryHandler;
+import com.terratown.terratown_additions.util.handlers.TileEntityHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;

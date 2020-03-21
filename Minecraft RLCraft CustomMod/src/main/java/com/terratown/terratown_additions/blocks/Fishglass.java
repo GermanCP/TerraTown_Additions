@@ -7,6 +7,7 @@ import com.terratown.terratown_additions.init.ModItems;
 import com.terratown.terratown_additions.util.Reference;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -30,7 +31,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Fishglass extends BlockContainer{
+public class Fishglass extends BlockContainer implements ITileEntityProvider
+{
 
 	public static final PropertyInteger FILL = PropertyInteger.create("fill", 0, 3);
 	public static World world;
@@ -85,6 +87,19 @@ public class Fishglass extends BlockContainer{
 	{
 		return this.getDefaultState().withProperty(FILL, meta);
 	}	
+	
+	//-------------------------------------------------------------
+	//set tileentity
+	public void setState(boolean active, World worldIn, BlockPos pos)
+	{
+		IBlockState state = worldIn.getBlockState(pos);
+		TileEntity tileentity = worldIn.getTileEntity(pos);
+		
+		if(tileentity != null) {
+			tileentity.validate();
+			worldIn.setTileEntity(pos, tileentity);
+		}
+	}
 	
 	//-------------------------------------------------------------
 	//update blockstate
@@ -142,11 +157,13 @@ public class Fishglass extends BlockContainer{
 	{
 		if(stack.hasDisplayName())
 		{
+			/*
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 			
 			if(tileentity instanceof TileEntityFishglass) {
 				((TileEntityFishglass)tileentity).setCustomName(stack.getDisplayName());
 			}
+			*/
 		}
 	}
 	
@@ -177,5 +194,10 @@ public class Fishglass extends BlockContainer{
 		return false;
 	}
 	
+	@Override
+	public boolean hasTileEntity(IBlockState state)
+	{
+		return false;
+	}
 	 
 }

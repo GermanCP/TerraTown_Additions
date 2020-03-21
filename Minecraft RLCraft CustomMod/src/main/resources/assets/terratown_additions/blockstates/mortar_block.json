@@ -2,9 +2,42 @@
     "multipart": [
            {
             "apply": {"model": "terratown_additions:mortar_block"}
-           }
+           },   
 
-           
+                {
+                    "when": {"grinding": false, "facing": "south"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0"}
+                },
+                {
+                    "when": {"grinding": false, "facing": "west"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 90}
+                },
+                {
+                    "when": {"grinding": false, "facing": "north"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 180}
+                },
+                {
+                    "when": {"grinding": false, "facing": "east"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": -90}
+                },
+                
+                {
+                    "when": {"grinding": true, "facing": "south"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east"},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": -90}
+                }
+        
            ]
 
 }

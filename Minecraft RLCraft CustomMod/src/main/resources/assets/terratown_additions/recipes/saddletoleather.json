@@ -4,17 +4,13 @@
   
     {
     "item": "minecraft:saddle"
-    },
-    
-    {
-    "item": "minecraft:shears"
     }
     
   ],
   
   "result": {
     "item": "minecraft:leather",
-    "data": 1,
+    "data": 0,
     "count": 3
   }
 }
