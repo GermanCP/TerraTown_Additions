@@ -52,6 +52,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 	private NonNullList<ItemStack> inventoryMortar = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
 	private String customName;
 	private static boolean removeStackFromPestleSlot = false;
+	private static boolean craftingSuccess = false;
 	
 	private int pestleTime;				//siehe feuer
 	private int currentPestleTime;		//aktuell feuer
@@ -286,8 +287,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 
                             if (itemstack.isEmpty())
                             {
-                            	
-                                ItemStack item1 = item.getContainerItem(itemstack);
+                            	ItemStack item1 = item.getContainerItem(itemstack);
                                 this.inventoryMortar.set(2, item1);
                             }
                         }
@@ -296,7 +296,16 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 
                 if (this.isGrinding() && this.canGrind())
                 {
-                    ++this.grindTime;
+                    if(itemstack.isEmpty()) 
+                    {
+                    	this.grindTime = 0;
+                    	this.pestleTime = 0;
+                    }
+                    else
+                    {
+                    	++this.grindTime;
+                    }
+                	
 
                     if (this.grindTime == this.totalGrindTime)
                     {
@@ -370,19 +379,22 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     {
         if (this.canGrind())
         {
+        	ItemStack pestle = (ItemStack)this.inventoryMortar.get(2);
         	ItemStack input1 = (ItemStack)this.inventoryMortar.get(0);
         	ItemStack input2 = (ItemStack)this.inventoryMortar.get(1);
             ItemStack result = MortarRecipes.getInstance().getGrindingResult(input1, input2);
             ItemStack output = (ItemStack)this.inventoryMortar.get(3);
 
-            if (output.isEmpty())
+            
+            if (output.isEmpty() && !pestle.isEmpty())
             {
                 this.inventoryMortar.set(3, result.copy());
             }
-            else if (output.getItem() == result.getItem())
+            else if (output.getItem() == result.getItem() && !pestle.isEmpty())
             {
                 output.grow(result.getCount());
             }
+            craftingSuccess = true;
             input1.shrink(1);
             input2.shrink(1);
         }
@@ -393,12 +405,15 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     {
     	Item item = pestle.getItem();
     	if(item == ModItems.PESTLE) {
-    		
-    		item.setDamage(pestle, item.getDamage(pestle) + 1);
-    		if(item.getDamage(pestle) == item.getMaxDamage())
+    		if(craftingSuccess == true) 
     		{
-    			removeStackFromPestleSlot = true;
+    			item.setDamage(pestle, item.getDamage(pestle) + 1);
+    			if(item.getDamage(pestle) >= item.getMaxDamage())
+    			{
+    				removeStackFromPestleSlot = true;
+    			}
     		}
+    		craftingSuccess = false;
     		return (MortarBlock.GrindSpeed);
     	}
     	return 0;
