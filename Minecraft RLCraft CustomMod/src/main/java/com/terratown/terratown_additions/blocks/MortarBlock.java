@@ -14,6 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -36,6 +37,8 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool GRINDING = PropertyBool.create("grinding");
+	public static final PropertyBool HAS_PESTLE = PropertyBool.create("has_pestle");
+	public static final PropertyInteger ANIMATION_STATE = PropertyInteger.create("animation_state", 0, 7);
 	public static int GrindSpeed;
 	
 	public MortarBlock(String name, Material material, SoundType sound, CreativeTabs tab, int grindspeed) {
@@ -52,7 +55,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 		//Light Opacity
 			setLightOpacity(0);	
 		//Property
-			this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(GRINDING, false));
+			this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(GRINDING, false).withProperty(HAS_PESTLE, false));
 		//Grindspeed
 			GrindSpeed = grindspeed;
 		
@@ -117,7 +120,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 		IBlockState state = worldIn.getBlockState(pos);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 		
-		worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(GRINDING,  active), 3);
+		worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(GRINDING,  active).withProperty(HAS_PESTLE, true), 3);
 		
 		if(tileentity != null)
 		{
@@ -175,7 +178,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 	@Override
 	protected BlockStateContainer createBlockState() 
 	{
-		return new BlockStateContainer(this, new IProperty[] {GRINDING, FACING});
+		return new BlockStateContainer(this, new IProperty[] {GRINDING, FACING, HAS_PESTLE, ANIMATION_STATE});
 	}
 	
 	@Override
@@ -183,7 +186,8 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 	{
 		EnumFacing facing = EnumFacing.getFront(meta);
 		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
-		return this.getDefaultState().withProperty(FACING, facing);
+		return this.getDefaultState().withProperty(FACING, facing).withProperty(HAS_PESTLE, false)
+				.withProperty(ANIMATION_STATE, meta);
 	}
 	
 	@Override

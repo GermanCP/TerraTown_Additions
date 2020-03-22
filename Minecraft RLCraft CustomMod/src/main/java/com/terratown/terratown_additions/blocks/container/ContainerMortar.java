@@ -29,7 +29,7 @@ public class ContainerMortar extends Container
 		
 		this.addSlotToContainer(new Slot(tileentity, 0, 56, 17));
 		this.addSlotToContainer(new Slot(tileentity, 1, 56, 53));
-		this.addSlotToContainer(new SlotMortarBlockPestle(tileentity, 2, 34, 35));
+		this.addSlotToContainer(new SlotMortarBlockPestle(tileentity, 2, 33, 35));
 		this.addSlotToContainer(new SlotMortarBlockOutput(player.player, tileentity, 3, 116, 35));
 		
 		for(int y = 0; y < 3; y++) {
