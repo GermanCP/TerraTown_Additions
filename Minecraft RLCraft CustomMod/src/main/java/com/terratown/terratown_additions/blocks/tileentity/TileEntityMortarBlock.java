@@ -300,18 +300,24 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
             if (this.isGrinding() || !itemstack.isEmpty() && !((((ItemStack)this.inventoryMortar.get(0)).isEmpty()) 
             		|| ((ItemStack)this.inventoryMortar.get(1)).isEmpty()))
             {
+            	Item item = itemstack.getItem();
+	
                 if (!this.isGrinding() && this.canGrind())
                 {
                     this.pestleTime = getItemGrindTime(itemstack);
                     this.currentPestleTime = this.pestleTime;
-
+                    
+                   // Item item = itemstack.getItem();
+                    
+                    damagePestle(item, itemstack);
+            		
                     if (this.isGrinding())
                     {
                         flag1 = true;
 
                         if (!itemstack.isEmpty())
                         {
-                            Item item = itemstack.getItem();
+                            
                             if(removeStackFromPestleSlot == true) {
                             	itemstack.shrink(1);
                             	removeStackFromPestleSlot = false;
@@ -339,13 +345,13 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
                     	++this.grindTime;
                     }
                 	
-
                     if (this.grindTime == this.totalGrindTime)
                     {
                         this.grindTime = 0;
                         this.totalGrindTime = this.getGrindTime((ItemStack)this.inventoryMortar.get(pestleSlot));
                         this.grindItem();
                         flag1 = true;
+                        damagePestle(item, itemstack);
                     }
                 }
                 else
@@ -371,6 +377,21 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
     
+    /**
+     * Damages the Pestle
+     */
+    private void damagePestle(Item item, ItemStack itemstack)
+    {
+    	if(craftingSuccess == true) 
+		{
+			item.setDamage(itemstack, item.getDamage(itemstack) + 1);
+			if(item.getDamage(itemstack) >= item.getMaxDamage())
+			{
+				removeStackFromPestleSlot = true;
+			}
+		}
+		craftingSuccess = false;
+    }
 
     /**
      * Returns true if the mortar can grind an item, i.e. has a source item, destination stack isn't full, etc.
@@ -437,19 +458,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     public static int getItemGrindTime(ItemStack pestle)
     {
     	Item item = pestle.getItem();
-    		if(item == ModItems.PESTLE) {
-    			/*	
-    			 *  if(craftingSuccess == true) 
-    				{
-    				item.setDamage(pestle, item.getDamage(pestle) + 1);
-    				if(item.getDamage(pestle) >= item.getMaxDamage())
-    				{
-    				removeStackFromPestleSlot = true;
-    				}
-    				}
-    				craftingSuccess = false;
-    			*/
-    			
+		
+    	if(item == ModItems.PESTLE) {
     		return (MortarBlock.GrindSpeed);
     	}
     	return 0;
