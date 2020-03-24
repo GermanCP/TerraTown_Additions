@@ -39,6 +39,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 	public static final PropertyBool GRINDING = PropertyBool.create("grinding");
 	public static final PropertyBool HAS_PESTLE = PropertyBool.create("has_pestle");
 	public static final PropertyInteger ANIMATION_STATE = PropertyInteger.create("animation_state", 0, 7);
+	
 	public static int GrindSpeed;
 	
 	public MortarBlock(String name, Material material, SoundType sound, CreativeTabs tab, int grindspeed) {
@@ -115,12 +116,22 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 		}
 	}
 	
+	//--------------------------------------------------------------------------------------------------------------------
+	
 	public static void setState(boolean active, World worldIn, BlockPos pos)
 	{
 		IBlockState state = worldIn.getBlockState(pos);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 		
-		worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(GRINDING,  active).withProperty(HAS_PESTLE, true), 3);
+		worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState()
+				//------------------
+				//get and set
+				.withProperty(FACING, state.getValue(FACING))
+				.withProperty(GRINDING,  active) //------------------------------set this value
+				.withProperty(HAS_PESTLE, true)
+				.withProperty(ANIMATION_STATE, state.getValue(ANIMATION_STATE))
+				//------------------
+				, 3);
 		
 		if(tileentity != null)
 		{
@@ -128,6 +139,30 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 			worldIn.setTileEntity(pos, tileentity);
 		}
 	}
+	
+	public static void setStateInt(int stateInt, World worldIn, BlockPos pos)
+	{
+		IBlockState state = worldIn.getBlockState(pos);
+		TileEntity tileentity = worldIn.getTileEntity(pos);
+		
+		worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState()
+				//------------------
+				//get and set
+				.withProperty(FACING, state.getValue(FACING))
+				.withProperty(GRINDING, state.getValue(GRINDING))
+				.withProperty(HAS_PESTLE, state.getValue(HAS_PESTLE))
+				.withProperty(ANIMATION_STATE,  stateInt) //------------------------------set this value
+				//------------------
+				, 3);
+		
+		if(tileentity != null)
+		{
+			tileentity.validate();
+			worldIn.setTileEntity(pos, tileentity);
+		}
+	}
+	
+	//--------------------------------------------------------------------------------------------------------------------
 	
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) 
@@ -195,7 +230,7 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 	{
 		return ((EnumFacing)state.getValue(FACING)).getIndex();
 	}
-
+		
 }
 
 

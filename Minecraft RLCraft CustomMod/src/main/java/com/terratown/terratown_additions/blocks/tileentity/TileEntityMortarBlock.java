@@ -1,5 +1,6 @@
 package com.terratown.terratown_additions.blocks.tileentity;
 
+import com.terratown.terratown_additions.blocks.Fishglass;
 import com.terratown.terratown_additions.blocks.MortarBlock;
 import com.terratown.terratown_additions.blocks.container.ContainerMortar;
 import com.terratown.terratown_additions.blocks.recipes.MortarRecipes;
@@ -9,6 +10,7 @@ import com.terratown.terratown_additions.util.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -33,10 +35,12 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.datafix.FixTypes;
 import net.minecraft.util.datafix.walkers.ItemStackDataLists;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -51,13 +55,19 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     
 	private NonNullList<ItemStack> inventoryMortar = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
 	private String customName;
-	private static boolean removeStackFromPestleSlot = false;
-	private static boolean craftingSuccess = false;
+	private boolean removeStackFromPestleSlot = false;
+	private boolean craftingSuccess = false;
 	
 	private int pestleTime;				//siehe feuer
 	private int currentPestleTime;		//aktuell feuer
 	private int grindTime;				//siehe pfeil
 	private int totalGrindTime;			//gesamtpfeil
+	
+	//variables for blockstate-detection
+	private int currentState, oldState, time;
+	private int stepTime = 5;
+	
+	private int stepAmount = MortarBlock.ANIMATION_STATE.getAllowedValues().size(); //number of animation steps
 	
 	private static final int upperSlot	= 0; //input upper
 	private static final int lowerSlot	= 1; //input lower
@@ -245,13 +255,36 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
      */
     public void update()
     {
+    	this.currentState = 0;
+    	
         boolean flag = this.isGrinding();
         boolean flag1 = false;
 
         if (this.isGrinding())
         {
+        	//reduce time
             --this.pestleTime;
+            
+            //record time passed
+            ++this.time;
+            
+            this.currentState = this.calcState(time);
+            
+            //call parent to update blockstate
+            if(this.currentState != this.oldState)
+            	{
+            		this.oldState = this.currentState;
+            		
+            		//update the blockstate in the parent Block
+            		MortarBlock.setStateInt(currentState, world, pos);
+            	}
         }
+        else
+        {
+        	this.time = 0;
+        }
+        
+        /**----------------------------------------------------------------- */
 
         if (!this.world.isRemote)
         {
@@ -404,16 +437,19 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     public static int getItemGrindTime(ItemStack pestle)
     {
     	Item item = pestle.getItem();
-    	if(item == ModItems.PESTLE) {
-    		if(craftingSuccess == true) 
-    		{
-    			item.setDamage(pestle, item.getDamage(pestle) + 1);
-    			if(item.getDamage(pestle) >= item.getMaxDamage())
-    			{
+    		if(item == ModItems.PESTLE) {
+    			/*	
+    			 *  if(craftingSuccess == true) 
+    				{
+    				item.setDamage(pestle, item.getDamage(pestle) + 1);
+    				if(item.getDamage(pestle) >= item.getMaxDamage())
+    				{
     				removeStackFromPestleSlot = true;
-    			}
-    		}
-    		craftingSuccess = false;
+    				}
+    				}
+    				craftingSuccess = false;
+    			*/
+    			
     		return (MortarBlock.GrindSpeed);
     	}
     	return 0;
@@ -563,6 +599,18 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     public void clear()
     {
         this.inventoryMortar.clear();
+    }
+    
+    
+    //-------------------------------------------------------------
+    //calculate the blockstate for the animation
+    public int calcState(int ctime)
+    {
+    	int step;
+    	
+    	step = (ctime / this.stepTime) % stepAmount;
+    	
+    	return step;
     }
     
 }

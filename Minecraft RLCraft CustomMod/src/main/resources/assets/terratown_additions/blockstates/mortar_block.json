@@ -5,38 +5,175 @@
            },   
 
                 {
-                    "when": {"grinding": false, "facing": "south"},
+                    "when": {"grinding": false, "facing": "south", "has_pestle": true},
                     "apply": {"model": "terratown_additions:pestle_anim/pestle_0"}
                 },
                 {
-                    "when": {"grinding": false, "facing": "west"},
+                    "when": {"grinding": false, "facing": "west", "has_pestle": true},
                     "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 90}
                 },
                 {
-                    "when": {"grinding": false, "facing": "north"},
+                    "when": {"grinding": false, "facing": "north", "has_pestle": true},
                     "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 180}
                 },
                 {
-                    "when": {"grinding": false, "facing": "east"},
+                    "when": {"grinding": false, "facing": "east", "has_pestle": true},
                     "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": -90}
                 },
                 
+                //--------------------------------------------------------------------------------------------------------------
+                //state 1
                 {
-                    "when": {"grinding": true, "facing": "south"},
-                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0"}
+                    "when": {"grinding": true, "facing": "south", "animation_state": 0},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_1"}
                 },
                 {
-                    "when": {"grinding": true, "facing": "west"},
-                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 90}
+                    "when": {"grinding": true, "facing": "west", "animation_state": 0},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_1", "y": 90}
                 },
                 {
-                    "when": {"grinding": true, "facing": "north"},
-                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": 180}
+                    "when": {"grinding": true, "facing": "north", "animation_state": 0},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_1", "y": 180}
                 },
                 {
-                    "when": {"grinding": true, "facing": "east"},
-                    "apply": {"model": "terratown_additions:pestle_anim/pestle_0", "y": -90}
+                    "when": {"grinding": true, "facing": "east", "animation_state": 0},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_1", "y": -90}
+                },
+                
+                //--------------------------------------------------------------------------------------------------------------
+                //state 2
+                {
+                    "when": {"grinding": true, "facing": "south", "animation_state": 1},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_2"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west", "animation_state": 1},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_2", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north", "animation_state": 1},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_2", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east", "animation_state": 1},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_2", "y": -90}
+                },
+                
+                //--------------------------------------------------------------------------------------------------------------
+                //state 3
+                {
+                    "when": {"grinding": true, "facing": "south", "animation_state": 2},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_3"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west", "animation_state": 2},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_3", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north", "animation_state": 2},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_3", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east", "animation_state": 2},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_3", "y": -90}
+                },
+                
+                //--------------------------------------------------------------------------------------------------------------
+                //state 4
+                {
+                    "when": {"grinding": true, "facing": "south", "animation_state": 3},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_4"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west", "animation_state": 3},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_4", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north", "animation_state": 3},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_4", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east", "animation_state": 3},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_4", "y": -90}
+                },
+                
+                //--------------------------------------------------------------------------------------------------------------
+                //state 5
+                {
+                    "when": {"grinding": true, "facing": "south", "animation_state": 4},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_5"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west", "animation_state": 4},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_5", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north", "animation_state": 4},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_5", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east", "animation_state": 4},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_5", "y": -90}
+                },
+                
+                //--------------------------------------------------------------------------------------------------------------
+                //state 6
+                {
+                    "when": {"grinding": true, "facing": "south", "animation_state": 5},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_6"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west", "animation_state": 5},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_6", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north", "animation_state": 5},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_6", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east", "animation_state": 5},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_6", "y": -90}
+                },
+                
+                //--------------------------------------------------------------------------------------------------------------
+                //state 7
+                {
+                    "when": {"grinding": true, "facing": "south", "animation_state": 6},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_7"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west", "animation_state": 6},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_7", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north", "animation_state": 6},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_7", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east", "animation_state": 6},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_7", "y": -90}
+                },
+                
+                //--------------------------------------------------------------------------------------------------------------
+                //state 8
+                {
+                    "when": {"grinding": true, "facing": "south", "animation_state": 7},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_8"}
+                },
+                {
+                    "when": {"grinding": true, "facing": "west", "animation_state": 7},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_8", "y": 90}
+                },
+                {
+                    "when": {"grinding": true, "facing": "north", "animation_state": 7},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_8", "y": 180}
+                },
+                {
+                    "when": {"grinding": true, "facing": "east", "animation_state": 7},
+                    "apply": {"model": "terratown_additions:pestle_anim/pestle_8", "y": -90}
                 }
+                
+                
         
            ]
 
