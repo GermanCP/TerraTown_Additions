@@ -128,7 +128,29 @@ public class MortarBlock extends BlockBase implements ITileEntityProvider
 				//get and set
 				.withProperty(FACING, state.getValue(FACING))
 				.withProperty(GRINDING,  active) //------------------------------set this value
-				.withProperty(HAS_PESTLE, true)
+				.withProperty(HAS_PESTLE, state.getValue(HAS_PESTLE))
+				.withProperty(ANIMATION_STATE, state.getValue(ANIMATION_STATE))
+				//------------------
+				, 3);
+		
+		if(tileentity != null)
+		{
+			tileentity.validate();
+			worldIn.setTileEntity(pos, tileentity);
+		}
+	}
+	
+	public static void setStatePestle(boolean hasPestle, World worldIn, BlockPos pos)
+	{
+		IBlockState state = worldIn.getBlockState(pos);
+		TileEntity tileentity = worldIn.getTileEntity(pos);
+		
+		worldIn.setBlockState(pos, ModBlocks.MORTAR_BLOCK.getDefaultState()
+				//------------------
+				//get and set
+				.withProperty(FACING, state.getValue(FACING))
+				.withProperty(GRINDING, state.getValue(GRINDING)) //------------------------------set this value
+				.withProperty(HAS_PESTLE, hasPestle)
 				.withProperty(ANIMATION_STATE, state.getValue(ANIMATION_STATE))
 				//------------------
 				, 3);

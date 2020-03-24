@@ -1,6 +1,5 @@
 package com.terratown.terratown_additions.blocks.tileentity;
 
-import com.terratown.terratown_additions.blocks.Fishglass;
 import com.terratown.terratown_additions.blocks.MortarBlock;
 import com.terratown.terratown_additions.blocks.container.ContainerMortar;
 import com.terratown.terratown_additions.blocks.recipes.MortarRecipes;
@@ -66,6 +65,9 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 	//variables for blockstate-detection
 	private int currentState, oldState, time;
 	private int stepTime = 5;
+	
+	//for pestle blockstate
+	private boolean pestleState = false;
 	
 	private int stepAmount = MortarBlock.ANIMATION_STATE.getAllowedValues().size(); //number of animation steps
 	
@@ -260,8 +262,17 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         boolean flag = this.isGrinding();
         boolean flag1 = false;
 
-        if (this.isGrinding())
+        this.showPestle();
+        
+        if (this.isGrinding() && !inventoryMortar.get(pestleSlot).isEmpty())
         {
+        	//set blockstate to true if not already done
+        	if(!pestleState) 
+        	{
+        		MortarBlock.setStatePestle(true, world, pos);
+        		pestleState = true;
+        	}
+        	
         	//reduce time
             --this.pestleTime;
             
@@ -282,6 +293,14 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         else
         {
         	this.time = 0;
+        	this.pestleTime = 0;
+        	
+        	//set blockstate to false if not already done
+        	if(pestleState && inventoryMortar.get(pestleSlot).isEmpty())
+        	{
+        		MortarBlock.setStatePestle(false, world, pos);
+        		pestleState = false;
+        	}
         }
         
         /**----------------------------------------------------------------- */
@@ -297,7 +316,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         	
             ItemStack itemstack = (ItemStack)this.inventoryMortar.get(2);
 
-            if (this.isGrinding() || !itemstack.isEmpty() && !((((ItemStack)this.inventoryMortar.get(0)).isEmpty()) 
+            if (this.isGrinding()
+            		|| !itemstack.isEmpty() && !((((ItemStack)this.inventoryMortar.get(0)).isEmpty()) 
             		|| ((ItemStack)this.inventoryMortar.get(1)).isEmpty()))
             {
             	Item item = itemstack.getItem();
@@ -622,5 +642,18 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     	
     	return step;
     }
+    
+    //-------------------------------------------------------------
+    //make pestle appear if there is one in the inventory
+    public void showPestle()
+    {
+    	if(!pestleState && !inventoryMortar.get(pestleSlot).isEmpty()) 
+    	{
+    		System.out.println("hello world");
+    		MortarBlock.setStatePestle(true, world, pos);
+    		pestleState = true;
+    	}
+    }	
+
     
 }
