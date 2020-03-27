@@ -16,8 +16,7 @@ import net.minecraft.item.ItemStack;
 public class MortarRecipes 
 {
 	private static final MortarRecipes INSTANCE = new MortarRecipes();
-	private final Table<ItemStack, ItemStack, ItemStack> grindingList = HashBasedTable
-			.<ItemStack, ItemStack, ItemStack>create();
+	private final Table<ItemStack, ItemStack, ItemStack> grindingList = HashBasedTable.<ItemStack, ItemStack, ItemStack>create();
 	private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
 	
 	public static MortarRecipes getInstance()
@@ -33,13 +32,15 @@ public class MortarRecipes
 		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.YELLOW.getDyeDamage()), 
 				new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage()), 
 				new ItemStack(Items.DYE, 2, EnumDyeColor.ORANGE.getDyeDamage()), 0.1F);
-		
 		//2
+		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.BLUE.getDyeDamage()),
+				new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()),
+				new ItemStack(Items.DYE, 1, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), 0.1F);
 	}
 	
 	public void addMortarRecipes(ItemStack input1, ItemStack input2, ItemStack result, float experience)
 	{
-		if(getGrindingResult(input1, input2) != ItemStack.EMPTY) return;
+		if(getGrindingResult(input1, input2) != ItemStack.EMPTY) {return;}
 		this.grindingList.put(input1, input2, result);
 		this.experienceList.put(result, Float.valueOf(experience));
 	}
@@ -74,6 +75,9 @@ public class MortarRecipes
 	
 	public float getGrindingExperience(ItemStack stack)
 	{
+		//float ret = stack.getItem().getSmeltingExperience(stack);
+        //if (ret != -1) return ret;
+        
 		for(Entry<ItemStack, Float> entry : this.experienceList.entrySet())
 		{
 			if(this.compareItemStacks(stack,  (ItemStack)entry.getKey()))

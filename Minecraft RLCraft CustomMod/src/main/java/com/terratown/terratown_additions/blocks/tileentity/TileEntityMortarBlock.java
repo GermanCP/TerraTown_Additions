@@ -326,9 +326,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
                 {
                     this.pestleTime = getItemGrindTime(itemstack);
                     this.currentPestleTime = this.pestleTime;
-                    
-                   // Item item = itemstack.getItem();
-                    
+                   
                     damagePestle(item, itemstack);
             		
                     if (this.isGrinding())
@@ -337,13 +335,11 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 
                         if (!itemstack.isEmpty())
                         {
-                            
                             if(removeStackFromPestleSlot == true) {
                             	itemstack.shrink(1);
                             	removeStackFromPestleSlot = false;
                             }
-                            // itemstack.shrink(1);
-
+                            
                             if (itemstack.isEmpty())
                             {
                             	ItemStack item1 = item.getContainerItem(itemstack);
@@ -368,6 +364,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
                     if (this.grindTime == this.totalGrindTime)
                     {
                         this.grindTime = 0;
+                        this.pestleTime = 0;
                         this.totalGrindTime = this.getGrindTime((ItemStack)this.inventoryMortar.get(pestleSlot));
                         this.grindItem();
                         flag1 = true;
@@ -377,6 +374,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
                 else
                 {
                     this.grindTime = 0;
+                    this.pestleTime = 0;
                 }
             }
             else if (!this.isGrinding() && this.grindTime > 0)
