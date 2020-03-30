@@ -28,48 +28,14 @@ public class MortarRecipes
 	{
 		//add Recipes here
 		
-		//1 orange
+		//1
 		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.YELLOW.getDyeDamage()), 
 				new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage()), 
 				new ItemStack(Items.DYE, 2, EnumDyeColor.ORANGE.getDyeDamage()), 0.1F);
-		//2 light blue
+		//2
 		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.BLUE.getDyeDamage()),
 				new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()),
 				new ItemStack(Items.DYE, 1, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), 0.1F);
-		//3 cyan
-		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.BLUE.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.GREEN.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.CYAN.getDyeDamage()), 0.1F);
-		//4 pink
-		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.PINK.getDyeDamage()), 0.1F);
-		//5 purple
-		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.BLUE.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.PURPLE.getDyeDamage()), 0.1F);
-		//6 magenta
-		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.PINK.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.PURPLE.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.MAGENTA.getDyeDamage()), 0.1F);
-		//7 lime
-		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.GREEN.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.LIME.getDyeDamage()), 0.1F);
-		//8 light gray (SILVER??? wtf)
-		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.GRAY.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.SILVER.getDyeDamage()), 0.1F);
-		//9 gray
-		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.BLACK.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()),
-				new ItemStack(Items.DYE, 1, EnumDyeColor.GRAY.getDyeDamage()), 0.1F);
-		
-		
-		
-		
-		
-		
 	}
 	
 	public void addMortarRecipes(ItemStack input1, ItemStack input2, ItemStack result, float experience)
