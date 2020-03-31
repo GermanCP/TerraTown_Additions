@@ -1,0 +1,14 @@
+{
+     "variants": 
+     {
+        "age=0": { "model": "terratown_additions:rose_bush0" },
+        "age=1": { "model": "terratown_additions:rose_bush1" },
+        "age=2": { "model": "terratown_additions:rose_bush2" },
+        "age=3": { "model": "terratown_additions:rose_bush3" },
+        "age=4": { "model": "terratown_additions:rose_bush4" },
+        "age=5": { "model": "terratown_additions:rose_bush5" },
+        "age=6": { "model": "terratown_additions:rose_bush6" },
+        "age=7": { "model": "terratown_additions:rose_bush7" }
+     }
+
+}

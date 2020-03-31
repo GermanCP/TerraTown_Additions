@@ -10,6 +10,10 @@ tile.fishglass.name=Fishglass
 tile.sugarcane_block_deco.name=Sugarcane Bale
 tile.mortar_block.name=Mortar
 
+//Plants
+tile.rose_bush.name=Rose Bush
+item.rose_seed.name=Rose Cutting
+
 
 //Container
 container.fishglass=Fishglass

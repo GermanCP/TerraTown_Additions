@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.terratown.terratown_additions.Main;
 import com.terratown.terratown_additions.blocks.BlockBase;
-
+import com.terratown.terratown_additions.blocks.BreedableFlower;
 //advanced
 import com.terratown.terratown_additions.blocks.Fishglass;
 import com.terratown.terratown_additions.blocks.SugarcaneBlock;
@@ -15,6 +15,9 @@ import com.terratown.terratown_additions.blocks.MortarBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
 
 public class ModBlocks
 {
@@ -32,5 +35,8 @@ public class ModBlocks
 	//functional block
 	public static final Block MORTAR_BLOCK = new MortarBlock("mortar_block", Material.ROCK, SoundType.STONE, Main.tabCrafting, 200);
 	//public static final Block MORTAR_BLOCK_ADVANCED = new MortarBlock("mortar_block_advanced", Material.ROCK, SoundType.STONE, Main.tabCrafting, 100);
+	
+	//flowers
+	public static final Block ROSE_BUSH = new BreedableFlower("rose_bush", new ItemStack(Items.DYE, 3, EnumDyeColor.RED.getDyeDamage()), new ItemStack (ModItems.ROSE_SEED));
 
 }
