@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.terratown.terratown_additions.Main;
+import com.terratown.terratown_additions.blocks.BreedableFlower;
 import com.terratown.terratown_additions.items.FlowerSeeds;
 import com.terratown.terratown_additions.items.ItemBase;
 
@@ -36,10 +37,10 @@ public class ModItems
 	public static final Item XP_TOME_EMERALD = new ItemBaseXPTome("xp_tome_emerald", 12895);
 	
 	//seeds
-	public static final Item ROSE_SEED = new FlowerSeeds("rose_seed", ModBlocks.ROSE_BUSH, Blocks.FARMLAND);/*
-	public static final Item TULIP_NODULE_ORANGE = new FlowerSeeds("tulip_nodule_orange", ModBlocks.TULIP_ORANGE, Blocks.FARMLAND, ModBlocks.TULIP_ORANGE.getDefaultState());
-	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white", ModBlocks.TULIP_WHITE, Blocks.FARMLAND, ModBlocks.TULIP_WHITE.getDefaultState());
-	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink", ModBlocks.TULIP_PINK, Blocks.FARMLAND, ModBlocks.TULIP_PINK.getDefaultState());
-	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red", ModBlocks.TULIP_RED, Blocks.FARMLAND, ModBlocks.TULIP_RED.getDefaultState());*/
+	public static final Item ROSE_SEED = new FlowerSeeds("rose_seed", 1, Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_ORANGE = new FlowerSeeds("tulip_nodule_orange", 2, Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white", 3, Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink", 4, Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red", 5, Blocks.FARMLAND);
 	
 }

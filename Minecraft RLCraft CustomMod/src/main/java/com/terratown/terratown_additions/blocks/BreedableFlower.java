@@ -37,6 +37,8 @@ public class BreedableFlower extends BlockCrops
 
 	public BreedableFlower(String name, ItemStack breed, Item seed) 
 	{
+		
+		this.setDefaultState(this.blockState.getBaseState().withProperty(this.getAgeProperty(), Integer.valueOf(0)));
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		dyeResult = breed;
@@ -46,8 +48,12 @@ public class BreedableFlower extends BlockCrops
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
 	}
 	
+	public final void setDefaultState() 
+	{
+		this.setDefaultState(this.blockState.getBaseState().withProperty(this.getAgeProperty(), Integer.valueOf(0)));
+		 
+	}
 	
-
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) 
 	{
@@ -81,5 +87,6 @@ public class BreedableFlower extends BlockCrops
 		
 		return flower[((Integer)state.getValue(this.getAgeProperty())).intValue()];
 	}
+	
 	
 }
