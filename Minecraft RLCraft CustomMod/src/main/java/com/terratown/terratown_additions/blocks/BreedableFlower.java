@@ -33,6 +33,7 @@ public class BreedableFlower extends BlockCrops
     		};
     private static ItemStack dyeResult;
     private static Item SEED;
+    private String NAME;
 
 
 	public BreedableFlower(String name, ItemStack breed, Item seed) 
@@ -43,9 +44,19 @@ public class BreedableFlower extends BlockCrops
 		setRegistryName(name);
 		dyeResult = breed;
 		SEED = seed;
+		NAME = name;
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
+	}
+	
+	private void getDyeResult() 
+	{
+		if(NAME == "rose_bush") dyeResult = new ItemStack(Items.DYE, 3, EnumDyeColor.RED.getDyeDamage());
+		if(NAME == "tulip_orange") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.ORANGE.getDyeDamage());
+		if(NAME == "tulip_white") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage());
+		if(NAME == "tulip_pink") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.PINK.getDyeDamage());
+		if(NAME == "tulip_red") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage());
 	}
 	
 	public final void setDefaultState() 
@@ -55,12 +66,14 @@ public class BreedableFlower extends BlockCrops
 	}
 	
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) 
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, 
+			EnumFacing facing, float hitX, float hitY, float hitZ) 
 	{
 		if(!worldIn.isRemote)
 		{
 			if(this.isMaxAge(state))
 			{
+				getDyeResult();
 				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), dyeResult));
 				worldIn.setBlockState(pos, this.withAge(0));
 				return true;

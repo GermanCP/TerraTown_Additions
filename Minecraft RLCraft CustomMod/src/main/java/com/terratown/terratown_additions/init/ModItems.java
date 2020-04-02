@@ -37,10 +37,10 @@ public class ModItems
 	public static final Item XP_TOME_EMERALD = new ItemBaseXPTome("xp_tome_emerald", 12895);
 	
 	//seeds
-	public static final Item ROSE_SEED = new FlowerSeeds("rose_seed", 1, Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_ORANGE = new FlowerSeeds("tulip_nodule_orange", 2, Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white", 3, Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink", 4, Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red", 5, Blocks.FARMLAND);
+	public static final Item ROSE_SEED = new FlowerSeeds("rose_seed", Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_ORANGE = new FlowerSeeds("tulip_nodule_orange", Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white",  Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink",  Blocks.FARMLAND);
+	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red",  Blocks.FARMLAND);
 	
 }

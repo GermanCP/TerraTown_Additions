@@ -28,12 +28,11 @@ import net.minecraftforge.common.IPlantable;
 public class FlowerSeeds extends Item implements IPlantable, IHasModel
 {
 	public Block CROPS;
-	private int Crops = 0;
+	private String NAME;
 	
-	public FlowerSeeds(String name, int crops, Block soil) {
+	public FlowerSeeds(String name, Block soil) {
 		
 		//CROPS = crops;
-		Crops = crops;
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.tabItems);
@@ -42,12 +41,13 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
 		ModItems.ITEMS.add(this);
 	}
 	
-	private void getCrops(int crops) {
-		if(crops == 1) CROPS = ModBlocks.ROSE_BUSH;
-		if(crops == 2) CROPS = ModBlocks.TULIP_ORANGE;
-		if(crops == 3) CROPS = ModBlocks.TULIP_WHITE;
-		if(crops == 4) CROPS = ModBlocks.TULIP_PINK;
-		if(crops == 5) CROPS = ModBlocks.TULIP_RED;
+	//change int to string name like registername
+	private void getCrops(String name) {
+		if(name == "rose_seed") CROPS = ModBlocks.ROSE_BUSH;
+		if(name == "tulip_nodule_orange") CROPS = ModBlocks.TULIP_ORANGE;
+		if(name == "tulip_nodule_white") CROPS = ModBlocks.TULIP_WHITE;
+		if(name == "tulip_nodule_pink") CROPS = ModBlocks.TULIP_PINK;
+		if(name == "tulip_nodule_red") CROPS = ModBlocks.TULIP_RED;
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
 	@Override
 	public IBlockState getPlant(IBlockAccess world, BlockPos pos) 
 	{
-		getCrops(Crops);
+		getCrops(NAME);
 		return CROPS.getDefaultState();
 	}
 	
