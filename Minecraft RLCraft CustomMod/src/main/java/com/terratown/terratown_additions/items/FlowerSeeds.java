@@ -7,12 +7,11 @@ import com.terratown.terratown_additions.util.IHasModel;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -24,14 +23,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
-public class FlowerSeeds extends ItemSeeds implements IHasModel, IPlantable
+public class FlowerSeeds extends ItemSeeds implements IPlantable, IHasModel
 {
-
+	
 	public FlowerSeeds(String name, Block crops, Block soil) {
 		super(crops, soil);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.tabItems);
+		
 		
 		ModItems.ITEMS.add(this);
 	}
@@ -45,8 +45,9 @@ public class FlowerSeeds extends ItemSeeds implements IHasModel, IPlantable
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		ItemStack itemstack = player.getHeldItem(hand);
-        IBlockState state = worldIn.getBlockState(pos);
-        if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()))
+		IBlockState state = worldIn.getBlockState(pos);
+        if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && 
+        		state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()))
         {
         	worldIn.setBlockState(pos.up(), ModBlocks.ROSE_BUSH.getDefaultState());
         	itemstack.shrink(1);
@@ -55,11 +56,12 @@ public class FlowerSeeds extends ItemSeeds implements IHasModel, IPlantable
         else return EnumActionResult.FAIL;
 	}
 	
+	
 	@Override
-	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) 
-	{
-		return EnumPlantType.Crop;
-	}
+    public EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos)
+    {
+        return EnumPlantType.Crop;
+    }
 	
 	@Override
 	public IBlockState getPlant(IBlockAccess world, BlockPos pos) 

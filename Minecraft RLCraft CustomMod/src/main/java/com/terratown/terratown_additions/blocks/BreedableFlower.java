@@ -31,14 +31,16 @@ public class BreedableFlower extends BlockCrops
     		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D), 
     		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)
     		};
+    private static ItemStack dyeResult;
+    private static Item SEED;
 
 
-
-	public BreedableFlower(String name, ItemStack breed, ItemStack seed) 
+	public BreedableFlower(String name, ItemStack breed, Item seed) 
 	{
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		ItemStack dyeResult = breed;
+		dyeResult = breed;
+		SEED = seed;
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
@@ -53,7 +55,7 @@ public class BreedableFlower extends BlockCrops
 		{
 			if(this.isMaxAge(state))
 			{
-				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.DYE, 3, EnumDyeColor.RED.getDyeDamage())));
+				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), dyeResult));
 				worldIn.setBlockState(pos, this.withAge(0));
 				return true;
 			}
@@ -64,13 +66,13 @@ public class BreedableFlower extends BlockCrops
 	@Override
 	protected Item getSeed()
 	{
-		return ModItems.ROSE_SEED;
+		return SEED;
 	}
 	
 	@Override
 	protected Item getCrop() 
 	{	
-		return ModItems.ROSE_SEED;
+		return SEED;
 	}
 	
 	@Override

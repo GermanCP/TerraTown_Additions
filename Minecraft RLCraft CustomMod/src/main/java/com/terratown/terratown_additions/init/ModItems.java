@@ -10,6 +10,7 @@ import com.terratown.terratown_additions.items.ItemBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
@@ -35,6 +36,10 @@ public class ModItems
 	public static final Item XP_TOME_EMERALD = new ItemBaseXPTome("xp_tome_emerald", 12895);
 	
 	//seeds
-	public static final Item ROSE_SEED = new FlowerSeeds("rose_seed", ModBlocks.ROSE_BUSH, Blocks.FARMLAND);
+	public static final Item ROSE_SEED = new FlowerSeeds("rose_seed", ModBlocks.ROSE_BUSH, Blocks.FARMLAND);/*
+	public static final Item TULIP_NODULE_ORANGE = new FlowerSeeds("tulip_nodule_orange", ModBlocks.TULIP_ORANGE, Blocks.FARMLAND, ModBlocks.TULIP_ORANGE.getDefaultState());
+	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white", ModBlocks.TULIP_WHITE, Blocks.FARMLAND, ModBlocks.TULIP_WHITE.getDefaultState());
+	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink", ModBlocks.TULIP_PINK, Blocks.FARMLAND, ModBlocks.TULIP_PINK.getDefaultState());
+	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red", ModBlocks.TULIP_RED, Blocks.FARMLAND, ModBlocks.TULIP_RED.getDefaultState());*/
 	
 }
