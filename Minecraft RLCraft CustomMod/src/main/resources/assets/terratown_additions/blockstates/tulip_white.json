@@ -1,0 +1,14 @@
+{
+     "variants": 
+     {
+        "age=0": { "model": "terratown_additions:tulip_white0" },
+        "age=1": { "model": "terratown_additions:tulip_white1" },
+        "age=2": { "model": "terratown_additions:tulip_white2" },
+        "age=3": { "model": "terratown_additions:tulip_white3" },
+        "age=4": { "model": "terratown_additions:tulip_white4" },
+        "age=5": { "model": "terratown_additions:tulip_white5" },
+        "age=6": { "model": "terratown_additions:tulip_white6" },
+        "age=7": { "model": "terratown_additions:tulip_white7" }
+     }
+
+}

@@ -1,0 +1,6 @@
+{
+   "parent": "block/cross",
+   "textures": {
+        "cross": "terratown_additions:blocks/tulip_red6"
+   }
+}

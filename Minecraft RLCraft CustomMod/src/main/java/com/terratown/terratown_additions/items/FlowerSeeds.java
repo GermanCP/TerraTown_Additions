@@ -36,7 +36,7 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.tabItems);
-		
+		NAME = name;
 		
 		ModItems.ITEMS.add(this);
 	}
@@ -63,6 +63,7 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
         if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && 
         		state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()))
         {
+        	getCrops(NAME);
         	worldIn.setBlockState(pos.up(), CROPS.getDefaultState());
         	if (player instanceof EntityPlayerMP)
             {
