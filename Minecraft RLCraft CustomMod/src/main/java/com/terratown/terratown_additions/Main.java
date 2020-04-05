@@ -86,5 +86,13 @@ public class Main {
 		}
 	};
 	
+	public static CreativeTabs tabFlower = new CreativeTabs("tab_flower") {
+		
+		@Override
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ModItems.ROSE_CUTTING);
+		}
+	};
+	
 	//----------------------------------------------
 }

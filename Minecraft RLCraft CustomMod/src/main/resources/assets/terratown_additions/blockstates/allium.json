@@ -1,0 +1,14 @@
+{
+     "variants": 
+     {
+        "age=0": { "model": "terratown_additions:allium0" },
+        "age=1": { "model": "terratown_additions:allium1" },
+        "age=2": { "model": "terratown_additions:allium2" },
+        "age=3": { "model": "terratown_additions:allium3" },
+        "age=4": { "model": "terratown_additions:allium4" },
+        "age=5": { "model": "terratown_additions:allium5" },
+        "age=6": { "model": "terratown_additions:allium6" },
+        "age=7": { "model": "terratown_additions:allium7" }
+     }
+
+}

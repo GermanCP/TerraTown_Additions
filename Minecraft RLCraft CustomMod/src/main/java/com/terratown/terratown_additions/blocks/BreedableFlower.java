@@ -32,6 +32,7 @@ public class BreedableFlower extends BlockCrops
     		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)
     		};
     private static ItemStack dyeResult;
+    private static Item PETAL;
     private static Item SEED;
     private String NAME;
 
@@ -39,7 +40,6 @@ public class BreedableFlower extends BlockCrops
 	public BreedableFlower(String name) 
 	{
 		
-		this.setDefaultState(this.blockState.getBaseState().withProperty(this.getAgeProperty(), Integer.valueOf(0)));
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		NAME = name;
@@ -56,16 +56,42 @@ public class BreedableFlower extends BlockCrops
 		if(NAME == "tulip_pink") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.PINK.getDyeDamage());
 		if(NAME == "tulip_red") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage());
 		if(NAME == "dandelion") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.YELLOW.getDyeDamage());
+		if(NAME == "poppy") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage());
+		
+	}
+	
+	private void getPetal()
+	{
+		if(NAME == "rose_bush") PETAL = ModItems.ROSE_PETAL;
+		if(NAME == "tulip_orange") PETAL = ModItems.TULIP_ORANGE_PETAL;
+		if(NAME == "tulip_white") PETAL = ModItems.TULIP_WHITE_PETAL;
+		if(NAME == "tulip_pink") PETAL = ModItems.TULIP_PINK_PETAL;
+		if(NAME == "tulip_red") PETAL = ModItems.TULIP_RED_PETAL;
+		if(NAME == "dandelion") PETAL = ModItems.DANDELION_PETAL;
+		if(NAME == "poppy") PETAL = ModItems.POPPY_PETAL;
+		if(NAME == "cornflower") PETAL = ModItems.CORNFLOWER_PETAL;
+		if(NAME == "oxeye_daisy") PETAL = ModItems.OXEYE_DAISY_PETAL;
+		if(NAME == "allium") PETAL = ModItems.ALLIUM_PETAL;
+		if(NAME == "lily_of_the_valley") PETAL = ModItems.LILY_OF_THE_VALLEY_PETAL;
+		if(NAME == "azure_bluet") PETAL = ModItems.AZURE_BLUET_PETAL;
+		if(NAME == "blue_orchid") PETAL = ModItems.BLUE_ORCHID_PETAL;
 	}
 	
 	private void getSeedByName() 
 	{
-		if(NAME == "rose_bush") SEED = ModItems.ROSE_SEED;
+		if(NAME == "rose_bush") SEED = ModItems.ROSE_CUTTING;
 		if(NAME == "tulip_orange") SEED = ModItems.TULIP_NODULE_ORANGE;
 		if(NAME == "tulip_white") SEED = ModItems.TULIP_NODULE_WHITE;
 		if(NAME == "tulip_pink") SEED = ModItems.TULIP_NODULE_PINK;
 		if(NAME == "tulip_red") SEED = ModItems.TULIP_NODULE_RED;
 		if(NAME == "dandelion") SEED = ModItems.DANDELION_SEED;
+		if(NAME == "poppy") SEED = ModItems.POPPY_SEED;
+		if(NAME == "cornflower") SEED = ModItems.CORNFLOWER_SEED;
+		if(NAME == "oxeye_daisy") SEED = ModItems.OXEYE_DAISY_SEED;
+		if(NAME == "allium") SEED = ModItems.ALLIUM_NODULE;
+		if(NAME == "lily_of_the_valley") SEED = ModItems.LILY_OF_THE_VALLY_SEED;
+		if(NAME == "azure_bluet") SEED = ModItems.AZURE_BLUET_SEED;
+		if(NAME == "blue_orchid") SEED = ModItems.BLUE_ORCHID_CUTTING;
 	}
 	
 	public final void setDefaultState() 

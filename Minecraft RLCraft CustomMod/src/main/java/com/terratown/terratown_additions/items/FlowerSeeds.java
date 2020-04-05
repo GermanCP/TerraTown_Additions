@@ -30,25 +30,35 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
 	public Block CROPS;
 	private String NAME;
 	
-	public FlowerSeeds(String name, Block soil) {
+	public FlowerSeeds(String name) {
 		
 		//CROPS = crops;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabItems);
-		NAME = name;
+		setCreativeTab(Main.tabFlower);
 		
 		ModItems.ITEMS.add(this);
+		
+		NAME = name;
+		
+		
 	}
 	
 	//change int to string name like registername
-	private void getCrops(String name) {
-		if(name == "rose_seed") CROPS = ModBlocks.ROSE_BUSH;
-		if(name == "tulip_nodule_orange") CROPS = ModBlocks.TULIP_ORANGE;
-		if(name == "tulip_nodule_white") CROPS = ModBlocks.TULIP_WHITE;
-		if(name == "tulip_nodule_pink") CROPS = ModBlocks.TULIP_PINK;
-		if(name == "tulip_nodule_red") CROPS = ModBlocks.TULIP_RED;
-		if(name == "dandelion_seed") CROPS = ModBlocks.DANDELION;
+	private void getCrops() {
+		if(NAME == "rose_cutting") CROPS = ModBlocks.ROSE_BUSH;
+		if(NAME == "tulip_nodule_orange") CROPS = ModBlocks.TULIP_ORANGE;
+		if(NAME == "tulip_nodule_white") CROPS = ModBlocks.TULIP_WHITE;
+		if(NAME == "tulip_nodule_pink") CROPS = ModBlocks.TULIP_PINK;
+		if(NAME == "tulip_nodule_red") CROPS = ModBlocks.TULIP_RED;
+		if(NAME == "dandelion_seed") CROPS = ModBlocks.DANDELION;
+		if(NAME == "poppy") CROPS = ModBlocks.POPPY;
+		if(NAME == "cornflower") CROPS = ModBlocks.CORNFLOWER;
+		if(NAME == "oxeye_daisy") CROPS = ModBlocks.OXEYE_DAISY;
+		if(NAME == "allium") CROPS = ModBlocks.ALLIUM;
+		if(NAME == "lily_of_the_valley") CROPS = ModBlocks.LILY_OF_THE_VALLEY;
+		if(NAME == "azure_bluet") CROPS = ModBlocks.AZURE_BLUET;
+		if(NAME == "blue_orchid") CROPS = ModBlocks.BLUE_ORCHID;
 	}
 
 	@Override
@@ -64,7 +74,7 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
         if (facing == EnumFacing.UP && player.canPlayerEdit(pos.offset(facing), facing, itemstack) && 
         		state.getBlock().canSustainPlant(state, worldIn, pos, EnumFacing.UP, this) && worldIn.isAirBlock(pos.up()))
         {
-        	getCrops(NAME);
+        	getCrops();
         	worldIn.setBlockState(pos.up(), CROPS.getDefaultState());
         	if (player instanceof EntityPlayerMP)
             {
@@ -87,7 +97,7 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
 	@Override
 	public IBlockState getPlant(IBlockAccess world, BlockPos pos) 
 	{
-		getCrops(NAME);
+		getCrops();
 		return CROPS.getDefaultState();
 	}
 	

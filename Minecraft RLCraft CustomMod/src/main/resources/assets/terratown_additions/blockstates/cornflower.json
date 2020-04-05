@@ -1,0 +1,14 @@
+{
+     "variants": 
+     {
+        "age=0": { "model": "terratown_additions:cornflower0" },
+        "age=1": { "model": "terratown_additions:cornflower1" },
+        "age=2": { "model": "terratown_additions:cornflower2" },
+        "age=3": { "model": "terratown_additions:cornflower3" },
+        "age=4": { "model": "terratown_additions:cornflower4" },
+        "age=5": { "model": "terratown_additions:cornflower5" },
+        "age=6": { "model": "terratown_additions:cornflower6" },
+        "age=7": { "model": "terratown_additions:cornflower7" }
+     }
+
+}

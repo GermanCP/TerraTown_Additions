@@ -15,6 +15,7 @@ import com.terratown.terratown_additions.blocks.MortarBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
@@ -44,6 +45,14 @@ public class ModBlocks
 	public static final Block TULIP_PINK = new BreedableFlower("tulip_pink");
 	public static final Block TULIP_RED = new BreedableFlower("tulip_red");
 	public static final Block DANDELION = new BreedableFlower("dandelion");
+	public static final Block POPPY = new BreedableFlower("poppy");
+	public static final Block CORNFLOWER = new BreedableFlower("cornflower");
+	public static final Block OXEYE_DAISY = new BreedableFlower("oxeye_flower");
+	public static final Block ALLIUM = new BreedableFlower("allium");
+	public static final Block LILY_OF_THE_VALLEY = new BreedableFlower("lily_of_the_valley");
+	public static final Block AZURE_BLUET = new BreedableFlower("azure_bluet");
+	public static final Block BLUE_ORCHID = new BreedableFlower("blue_orchid");
+	
 	
 
 }

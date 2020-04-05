@@ -1,0 +1,14 @@
+{
+     "variants": 
+     {
+        "age=0": { "model": "terratown_additions:lily_of_the_valley0" },
+        "age=1": { "model": "terratown_additions:lily_of_the_valley1" },
+        "age=2": { "model": "terratown_additions:lily_of_the_valley2" },
+        "age=3": { "model": "terratown_additions:lily_of_the_valley3" },
+        "age=4": { "model": "terratown_additions:lily_of_the_valley4" },
+        "age=5": { "model": "terratown_additions:lily_of_the_valley5" },
+        "age=6": { "model": "terratown_additions:lily_of_the_valley6" },
+        "age=7": { "model": "terratown_additions:lily_of_the_valley7" }
+     }
+
+}

@@ -1,0 +1,14 @@
+{
+     "variants": 
+     {
+        "age=0": { "model": "terratown_additions:azure_bluet0" },
+        "age=1": { "model": "terratown_additions:azure_bluet1" },
+        "age=2": { "model": "terratown_additions:azure_bluet2" },
+        "age=3": { "model": "terratown_additions:azure_bluet3" },
+        "age=4": { "model": "terratown_additions:azure_bluet4" },
+        "age=5": { "model": "terratown_additions:azure_bluet5" },
+        "age=6": { "model": "terratown_additions:azure_bluet6" },
+        "age=7": { "model": "terratown_additions:azure_bluet7" }
+     }
+
+}

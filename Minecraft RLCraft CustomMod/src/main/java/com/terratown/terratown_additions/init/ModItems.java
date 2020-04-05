@@ -37,11 +37,34 @@ public class ModItems
 	public static final Item XP_TOME_EMERALD = new ItemBaseXPTome("xp_tome_emerald", 12895);
 	
 	//seeds
-	public static final Item ROSE_SEED = new FlowerSeeds("rose_seed", Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_ORANGE = new FlowerSeeds("tulip_nodule_orange", Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white",  Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink",  Blocks.FARMLAND);
-	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red",  Blocks.FARMLAND);
-	public static final Item DANDELION_SEED = new FlowerSeeds("dandelion_seed", Blocks.FARMLAND);
+	public static final Item ROSE_CUTTING = new FlowerSeeds("rose_cutting");
+	public static final Item TULIP_NODULE_ORANGE = new FlowerSeeds("tulip_nodule_orange");
+	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white");
+	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink");
+	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red");
+	public static final Item DANDELION_SEED = new FlowerSeeds("dandelion_seed");
+	public static final Item POPPY_SEED = new FlowerSeeds("poppy_seed");
+	public static final Item CORNFLOWER_SEED = new FlowerSeeds("cornflower_seed");
+	public static final Item OXEYE_DAISY_SEED = new FlowerSeeds("oxeye_daisy_seed");
+	public static final Item ALLIUM_NODULE = new FlowerSeeds("allium_nodule");
+	public static final Item LILY_OF_THE_VALLY_SEED = new FlowerSeeds("lily_of_the_vally_seed");
+	public static final Item AZURE_BLUET_SEED = new FlowerSeeds("azure_bluet_seed");
+	public static final Item BLUE_ORCHID_CUTTING = new FlowerSeeds("blue_orchid_cutting");
+	
+	//petals
+	public static final Item ROSE_PETAL = new ItemBase("rose_petal", Main.tabItems);
+	public static final Item TULIP_ORANGE_PETAL = new ItemBase("tulip_orange_petal", Main.tabItems);
+	public static final Item TULIP_WHITE_PETAL = new ItemBase("tulip_white_petal", Main.tabItems);
+	public static final Item TULIP_PINK_PETAL = new ItemBase("tulip_pink_petal", Main.tabItems);
+	public static final Item TULIP_RED_PETAL = new ItemBase("tulip_red_petal", Main.tabItems);
+	public static final Item DANDELION_PETAL = new ItemBase("dadelion_petal", Main.tabFlower);
+	public static final Item POPPY_PETAL = new ItemBase("poppy_petal", Main.tabFlower);
+	public static final Item CORNFLOWER_PETAL = new ItemBase("cornflower_petal", Main.tabFlower);
+	public static final Item OXEYE_DAISY_PETAL = new ItemBase("oxeye_daisy_petal", Main.tabFlower);
+	public static final Item ALLIUM_PETAL = new ItemBase("allium_petal", Main.tabFlower);
+	public static final Item LILY_OF_THE_VALLEY_PETAL = new ItemBase("lily_of_the_vally_petal", Main.tabFlower);
+	public static final Item AZURE_BLUET_PETAL = new ItemBase("azure_bluet_petal", Main.tabFlower);
+	public static final Item BLUE_ORCHID_PETAL = new ItemBase("blue_orchid_petal", Main.tabFlower);
+	
 	
 }
