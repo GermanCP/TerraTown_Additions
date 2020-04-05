@@ -42,5 +42,6 @@ public class ModItems
 	public static final Item TULIP_NODULE_WHITE = new FlowerSeeds("tulip_nodule_white",  Blocks.FARMLAND);
 	public static final Item TULIP_NODULE_PINK = new FlowerSeeds("tulip_nodule_pink",  Blocks.FARMLAND);
 	public static final Item TULIP_NODULE_RED = new FlowerSeeds("tulip_nodule_red",  Blocks.FARMLAND);
+	public static final Item DANDELION_SEED = new FlowerSeeds("dandelion_seed", Blocks.FARMLAND);
 	
 }

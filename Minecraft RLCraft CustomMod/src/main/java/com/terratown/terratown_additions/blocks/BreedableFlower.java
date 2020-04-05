@@ -36,14 +36,12 @@ public class BreedableFlower extends BlockCrops
     private String NAME;
 
 
-	public BreedableFlower(String name, ItemStack breed, Item seed) 
+	public BreedableFlower(String name) 
 	{
 		
 		this.setDefaultState(this.blockState.getBaseState().withProperty(this.getAgeProperty(), Integer.valueOf(0)));
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		dyeResult = breed;
-		SEED = seed;
 		NAME = name;
 		
 		ModBlocks.BLOCKS.add(this);
@@ -57,6 +55,17 @@ public class BreedableFlower extends BlockCrops
 		if(NAME == "tulip_white") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage());
 		if(NAME == "tulip_pink") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.PINK.getDyeDamage());
 		if(NAME == "tulip_red") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage());
+		if(NAME == "dandelion") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.YELLOW.getDyeDamage());
+	}
+	
+	private void getSeedByName() 
+	{
+		if(NAME == "rose_bush") SEED = ModItems.ROSE_SEED;
+		if(NAME == "tulip_orange") SEED = ModItems.TULIP_NODULE_ORANGE;
+		if(NAME == "tulip_white") SEED = ModItems.TULIP_NODULE_WHITE;
+		if(NAME == "tulip_pink") SEED = ModItems.TULIP_NODULE_PINK;
+		if(NAME == "tulip_red") SEED = ModItems.TULIP_NODULE_RED;
+		if(NAME == "dandelion") SEED = ModItems.DANDELION_SEED;
 	}
 	
 	public final void setDefaultState() 
@@ -82,15 +91,18 @@ public class BreedableFlower extends BlockCrops
 		return false;
 	}
 	
+	
 	@Override
 	protected Item getSeed()
 	{
+		getSeedByName();
 		return SEED;
 	}
 	
 	@Override
 	protected Item getCrop() 
 	{	
+		getSeedByName();
 		return SEED;
 	}
 	

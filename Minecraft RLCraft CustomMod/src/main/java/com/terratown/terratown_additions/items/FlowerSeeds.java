@@ -48,6 +48,7 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
 		if(name == "tulip_nodule_white") CROPS = ModBlocks.TULIP_WHITE;
 		if(name == "tulip_nodule_pink") CROPS = ModBlocks.TULIP_PINK;
 		if(name == "tulip_nodule_red") CROPS = ModBlocks.TULIP_RED;
+		if(name == "dandelion_seed") CROPS = ModBlocks.DANDELION;
 	}
 
 	@Override
