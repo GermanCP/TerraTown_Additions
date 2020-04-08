@@ -12,7 +12,7 @@ tile.mortar_block.name=Mortar
 
 //Plants
 tile.rose_bush.name=Rose Bush
-item.rose_seed.name=Rose Cutting
+item.rose_cutting.name=Rose Cutting
 
 
 //Container

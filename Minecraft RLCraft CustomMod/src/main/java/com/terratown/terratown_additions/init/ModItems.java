@@ -13,10 +13,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 
 import com.terratown.terratown_additions.items.ItemBaseXPTome;
+import com.terratown.terratown_additions.items.ModDye;
 import com.terratown.terratown_additions.items.Pestle;
 
 public class ModItems
@@ -52,19 +54,18 @@ public class ModItems
 	public static final Item BLUE_ORCHID_CUTTING = new FlowerSeeds("blue_orchid_cutting");
 	
 	//petals
-	public static final Item ROSE_PETAL = new ItemBase("rose_petal", Main.tabItems);
-	public static final Item TULIP_ORANGE_PETAL = new ItemBase("tulip_orange_petal", Main.tabItems);
-	public static final Item TULIP_WHITE_PETAL = new ItemBase("tulip_white_petal", Main.tabItems);
-	public static final Item TULIP_PINK_PETAL = new ItemBase("tulip_pink_petal", Main.tabItems);
-	public static final Item TULIP_RED_PETAL = new ItemBase("tulip_red_petal", Main.tabItems);
-	public static final Item DANDELION_PETAL = new ItemBase("dadelion_petal", Main.tabFlower);
-	public static final Item POPPY_PETAL = new ItemBase("poppy_petal", Main.tabFlower);
-	public static final Item CORNFLOWER_PETAL = new ItemBase("cornflower_petal", Main.tabFlower);
-	public static final Item OXEYE_DAISY_PETAL = new ItemBase("oxeye_daisy_petal", Main.tabFlower);
-	public static final Item ALLIUM_PETAL = new ItemBase("allium_petal", Main.tabFlower);
-	public static final Item LILY_OF_THE_VALLEY_PETAL = new ItemBase("lily_of_the_vally_petal", Main.tabFlower);
-	public static final Item AZURE_BLUET_PETAL = new ItemBase("azure_bluet_petal", Main.tabFlower);
-	public static final Item BLUE_ORCHID_PETAL = new ItemBase("blue_orchid_petal", Main.tabFlower);
+	public static final Item PETAL_RED = new ItemBase("petal_red", Main.tabFlower);
+	public static final Item PETAL_ORANGE = new ItemBase("petal_orange", Main.tabFlower);
+	public static final Item PETAL_WHITE = new ItemBase("petal_white", Main.tabFlower);
+	public static final Item PETAL_PINK = new ItemBase("petal_pink", Main.tabFlower);
+	public static final Item PETAL_YELLOW = new ItemBase("petal_yellow", Main.tabFlower);
+	public static final Item PETAL_LIGHT_GRAY = new ItemBase("petal_light_gray", Main.tabFlower);
+	public static final Item PETAL_MAGENTA = new ItemBase("petal_magenta", Main.tabFlower);
+	public static final Item PETAL_BLUE = new ItemBase("petal_blue", Main.tabFlower);
+	
+	public static final Item BLUE_DYE = new ModDye("blue_dye", Main.tabFlower);
+	public static final Item WHITE_DYE = new ModDye("white_dye", Main.tabFlower);
+	public static final Item LIGHT_GRAY_DYE = new ModDye("light_gray_dye", Main.tabFlower);
 	
 	
 }

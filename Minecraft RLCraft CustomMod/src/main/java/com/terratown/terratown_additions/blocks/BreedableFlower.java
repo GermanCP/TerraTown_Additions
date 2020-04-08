@@ -62,19 +62,19 @@ public class BreedableFlower extends BlockCrops
 	
 	private void getPetal()
 	{
-		if(NAME == "rose_bush") PETAL = ModItems.ROSE_PETAL;
-		if(NAME == "tulip_orange") PETAL = ModItems.TULIP_ORANGE_PETAL;
-		if(NAME == "tulip_white") PETAL = ModItems.TULIP_WHITE_PETAL;
-		if(NAME == "tulip_pink") PETAL = ModItems.TULIP_PINK_PETAL;
-		if(NAME == "tulip_red") PETAL = ModItems.TULIP_RED_PETAL;
-		if(NAME == "dandelion") PETAL = ModItems.DANDELION_PETAL;
-		if(NAME == "poppy") PETAL = ModItems.POPPY_PETAL;
-		if(NAME == "cornflower") PETAL = ModItems.CORNFLOWER_PETAL;
-		if(NAME == "oxeye_daisy") PETAL = ModItems.OXEYE_DAISY_PETAL;
-		if(NAME == "allium") PETAL = ModItems.ALLIUM_PETAL;
-		if(NAME == "lily_of_the_valley") PETAL = ModItems.LILY_OF_THE_VALLEY_PETAL;
-		if(NAME == "azure_bluet") PETAL = ModItems.AZURE_BLUET_PETAL;
-		if(NAME == "blue_orchid") PETAL = ModItems.BLUE_ORCHID_PETAL;
+		if(NAME == "rose_bush") PETAL = ModItems.PETAL_RED;
+		if(NAME == "tulip_orange") PETAL = ModItems.PETAL_ORANGE;
+		if(NAME == "tulip_white") PETAL = ModItems.PETAL_WHITE;
+		if(NAME == "tulip_pink") PETAL = ModItems.PETAL_PINK;
+		if(NAME == "tulip_red") PETAL = ModItems.PETAL_RED;
+		if(NAME == "dandelion") PETAL = ModItems.PETAL_YELLOW;
+		if(NAME == "poppy") PETAL = ModItems.PETAL_RED;
+		if(NAME == "cornflower") PETAL = ModItems.PETAL_BLUE;
+		if(NAME == "oxeye_daisy") PETAL = ModItems.PETAL_WHITE;
+		if(NAME == "allium") PETAL = ModItems.PETAL_MAGENTA;
+		if(NAME == "lily_of_the_valley") PETAL = ModItems.PETAL_WHITE;
+		if(NAME == "azure_bluet") PETAL = ModItems.PETAL_LIGHT_GRAY;
+		if(NAME == "blue_orchid") PETAL = ModItems.PETAL_BLUE;
 	}
 	
 	private void getSeedByName() 

@@ -116,7 +116,6 @@ public class ContainerMortar extends Container
 						if(!this.mergeItemStack(stack1, 2, 3, false)) return ItemStack.EMPTY;
 					}
 					else if (tileentity.isItemPestle(stack1))
-					//else if (TileEntityMortarBlock.isItemPestle(stack1))
 					{
 						if(!this.mergeItemStack(stack1, 2, 3, false)) return ItemStack.EMPTY;
 					}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " S ",
+    "  C"
+  ],
+  
+  "key": {
+    "S": {
+      "item": "minecraft:stick",
+      "data": 0
+    },
+    "C": {
+      "item": "minecraft:cobblestone",
+      "data": 0
+    }
+  },
+  
+  "result": {
+    "item": "terratown_additions:pestle",
+    "data": 0
+  }
+}
