@@ -25,6 +25,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * Tileentity in which the inventory of a fishglass-block gets handled
+ * @author GermanCreepPlay
+ */
+
 public class TileEntityFishglass extends TileEntityLockableLoot implements IInventory, ITickable 
 	{
 		//-------------------------------------------------------------
@@ -32,6 +37,9 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 		private NonNullList<ItemStack> glassContents = NonNullList.<ItemStack>withSize(72, ItemStack.EMPTY);
 		
 		public int numPlayersUsing, ticksSinceSync;
+		
+		//inventory data
+		private int stackLimit = 32;
 		
 		//for blockstate detection
 		private int state;
@@ -53,11 +61,13 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 		
 		@Override
 		public int getInventoryStackLimit() {
-			return 32;
+			return stackLimit;
 		}
 		
 		//-------------------------------------------------------------
 		//gets and sets
+		
+		/**check if the inventory is empty*/
 		@Override
 		public boolean isEmpty() {
 			for(ItemStack stack : this.glassContents)
@@ -72,32 +82,18 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 		public String getName() {
 			return this.hasCustomName() ? this.customName : "container.fishglass";
 		}
-		
-		@Override
-		public void readFromNBT(NBTTagCompound compound)
-		{		
-			super.readFromNBT(compound);
-			this.glassContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
-			
-			//load Items
-			ItemStackHelper.loadAllItems(compound, this.glassContents);
 
-			
-			if(compound.hasKey("CustomName", 8)) this.customName = compound.getString("CustomName");
-		}
+		//-------------------------------------------------------------
+		//item handling
 		
-	    /**
-	     * Removes up to a specified number of items from an inventory slot and returns them in a new stack.
-	     */
+	    /** Removes up to a specified number of items from an inventory slot and returns them in a new stack. */
 		@Override
 	    public ItemStack decrStackSize(int index, int count)
 	    {
 	        return ItemStackHelper.getAndSplit(this.glassContents, index, count);
 	    }
 		
-	    /**
-	     * Removes a stack from the given slot and returns it.
-	     */
+		/**Removes a stack from the given slot and returns it.*/
 		@Override
 	    public ItemStack removeStackFromSlot(int index)
 	    {
@@ -117,7 +113,20 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 			return compound;
 		}
 		
+		@Override
+		public void readFromNBT(NBTTagCompound compound)
+		{		
+			super.readFromNBT(compound);
+			this.glassContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+			
+			//load Items
+			ItemStackHelper.loadAllItems(compound, this.glassContents);
 
+			
+			if(compound.hasKey("CustomName", 8)) this.customName = compound.getString("CustomName");
+		}
+
+		//-------------------------------------------------------------
 		@Override
 		public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)
 		{
@@ -129,14 +138,13 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 			return Reference.MOD_ID + ":fishglass";
 		}
 
+		/**called on every tick*/
 		@Override
 		public void update() {
-			if (!this.world.isRemote)
-			{
-				
-			}
+
 		}
 
+		/**get stacklist from glass*/
 		@Override
 		protected NonNullList<ItemStack> getItems() {
 			return this.glassContents;
@@ -162,15 +170,15 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 		}
 		
 		//-------------------------------------------------------------
-		//resetblock on inventory false!
+		/**make shure that tileentity is preserved between blockstate-changes*/
 		@Override
 	   	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
 			return (oldState.getBlock() != newState.getBlock());
 	    }
 		
 		//-------------------------------------------------------------
-		//updateinventory - count how many items are in inventory and update blockstate accordingly
 		
+		/**updateinventory - count how many items are in inventory and update blockstate accordingly*/
 		public void updateInventory() {
 			//reset counter
 			int numberOfItems = 0;
@@ -219,7 +227,7 @@ public class TileEntityFishglass extends TileEntityLockableLoot implements IInve
 		}
 		
 		
-		//Update Tileentity
+		/**Update Tileentity*/
 		@Override
 		@Nullable
 		public SPacketUpdateTileEntity getUpdatePacket() {

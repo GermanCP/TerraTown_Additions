@@ -45,90 +45,71 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * Tileentity in which the inventory of a mortar-block gets handled
+ * @author KamiKatze
+ */
+
 public class TileEntityMortarBlock extends TileEntity implements IInventory, ITickable 
 {
-	
+
+	/** arrays for inventoryslot ids */
 	private static final int[] SLOTS_TOP = new int[] {0};
     private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
     private static final int[] SLOTS_SIDES = new int[] {1, 3};
     
+    /** inventory itself and custom name for inventory */
 	private NonNullList<ItemStack> inventoryMortar = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
 	private String customName;
+	
+	/** boolean for crafting checks */
 	private boolean removeStackFromPestleSlot = false;
 	private boolean craftingSuccess = false;
 	
+	/** Times and total times */
 	private int pestleTime;				//siehe feuer
 	private int currentPestleTime;		//aktuell feuer
 	private int grindTime;				//siehe pfeil
 	private int totalGrindTime;			//gesamtpfeil
 	
-	//variables for blockstate-detection
+	private final int fieldCount = 4; 	//number times and total times
+	
+	/** constants */
+	private int stackLimit = 64;		//inventoryStackLimit
+	
+	/** variables for blockstate-detection */
 	private int currentState, oldState, time;
 	private int stepTime = 5;
 	
-	//for pestle blockstate
-	private boolean pestleState = false;
+	/** for pestle blockstate */
+	private boolean pestleState = false;	//if pestle should be shown
 	
 	private int stepAmount = MortarBlock.ANIMATION_STATE.getAllowedValues().size(); //number of animation steps
 	
+	//variables for slot-ids
 	private static final int upperSlot	= 0; //input upper
 	private static final int lowerSlot	= 1; //input lower
 	private static final int pestleSlot = 2; //fuel is in slot 2
 	private static final int outSlot 	= 3; //output
-
-    /**
-     * Returns the number of slots in the inventory.
-     */
+	
+    //--------------------------------------------------------------------------------
+	//gets and sets
+	
+    /**Returns the number of slots in the inventory.*/
 	@Override
     public int getSizeInventory()
     {
         return this.inventoryMortar.size();
     }
 	
+	/** Returns the stack in the given slot. */
 	@Override
-    public boolean isEmpty()
-    {
-        for (ItemStack itemstack : this.inventoryMortar)
-        {
-            if (!itemstack.isEmpty())
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-    
-    /**
-     * Returns the stack in the given slot.
-     */
-	@Override
-    public ItemStack getStackInSlot(int index)
-    {
+	public ItemStack getStackInSlot(int index)
+	{
         return (ItemStack)this.inventoryMortar.get(index);
     }
-    
-    /**
-     * Removes up to a specified number of items from an inventory slot and returns them in a new stack.
-     */
-	@Override
-    public ItemStack decrStackSize(int index, int count)
-    {
-        return ItemStackHelper.getAndSplit(this.inventoryMortar, index, count);
-    }
-
-    /**
-     * Removes a stack from the given slot and returns it.
-     */
-	@Override
-    public ItemStack removeStackFromSlot(int index)
-    {
-        return ItemStackHelper.getAndRemove(this.inventoryMortar, index);
-    }
 	
-    /**
-     * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
-     */
+	/** Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections). */
 	@Override
     public void setInventorySlotContents(int index, ItemStack stack)
     {
@@ -151,17 +132,13 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
 	
-	/**
-	 * sets how fast its grinding, increase -> decrease speed
-	 */
+	/**sets how fast its grinding, increase -> decrease speed*/
     public int getGrindTime(ItemStack pestle)
     {
     	return MortarBlock.GrindSpeed;
     }
-	
-    /**
-     * Get the name of this object. For players this returns their username
-     */
+
+    /**Get the name of this object. For players this returns their username*/
     @Override
     public String getName()
     {
@@ -173,16 +150,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     {
     	return (ITextComponent)(this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName(), new Object[0]));
     }
-	
-    /**
-     * Returns true if this thing is named
-     */
-    @Override
-    public boolean hasCustomName()
-    {
-        return this.customName != null && !this.customName.isEmpty();
-    }
-
+    
     public void setCustomInventoryName(String p_145951_1_)
     {
         this.customName = p_145951_1_;
@@ -194,6 +162,108 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     	this.customName = customName;
     }
     
+    public String getGuiID()
+    {
+        return Reference.MOD_ID + ":mortar_block";
+    }    
+    
+    //-----------------------------------------------------------------------------------------
+    //gets and sets for time values
+    
+    /**get time value specified by id*/
+    @Override
+    public int getField(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                return this.pestleTime;
+            case 1:
+                return this.currentPestleTime;
+            case 2:
+                return this.grindTime;
+            case 3:
+                return this.totalGrindTime;
+            default:
+                return 0;
+        }
+    }
+    
+    /**set time value specified by id*/
+    @Override
+    public void setField(int id, int value)
+    {
+        switch (id)
+        {
+            case 0:
+                this.pestleTime = value;
+                break;
+            case 1:
+                this.currentPestleTime = value;
+                break;
+            case 2:
+                this.grindTime = value;
+                break;
+            case 3:
+                this.totalGrindTime = value;
+                break;
+            default:
+            	break;
+        }
+    }
+    
+    /**returns number of time values.*/
+    @Override
+    public int getFieldCount()
+    {
+        return fieldCount;
+    }
+    
+	//--------------------------------------------------------------------------------
+	//checks
+	
+    /**check if inventory is empty*/
+	@Override
+    public boolean isEmpty()
+    {
+        for (ItemStack itemstack : this.inventoryMortar)
+        {
+            if (!itemstack.isEmpty())
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+    
+    /**Removes up to a specified number of items from an inventory slot and returns them in a new stack.*/
+	@Override
+    public ItemStack decrStackSize(int index, int count)
+    {
+        return ItemStackHelper.getAndSplit(this.inventoryMortar, index, count);
+    }
+
+    
+    /**Removes a stack from the given slot and returns it.*/
+	@Override
+    public ItemStack removeStackFromSlot(int index)
+    {
+        return ItemStackHelper.getAndRemove(this.inventoryMortar, index);
+    }
+	
+
+	
+    /**Returns true if this thing is named.*/
+    @Override
+    public boolean hasCustomName()
+    {
+        return this.customName != null && !this.customName.isEmpty();
+    }
+ 
+    //-----------------------------------------------------------------------------------
+    //NBT
     @Override
     public void readFromNBT(NBTTagCompound compound)
     {
@@ -229,18 +299,18 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         return compound;
     }
     
-    /**
-     * Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended.
-     */
+    //--------------------------------------------------------------------------------------------------------------------------------
+    //inventory and process related
+    
+    
+    /**Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended.*/
     @Override
     public int getInventoryStackLimit()
     {
-        return 64;
+        return stackLimit;
     }
     
-    /**
-     * Grinder isGrinding
-     */
+    /**check if Grinder is grinding by checking if the pestletime is greater than 0.*/
     public boolean isGrinding()
     {
         return this.pestleTime > 0;
@@ -252,9 +322,11 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         return inventory.getField(0) > 0;
     }
     
+    //--------------------------------------------------------------------------------------------------------------------------------
     /**
      * Like the old updateEntity(), except more generic.
-     */
+     * Is called on every tick to update all values.
+     * */
     public void update()
     {
     	this.currentState = 0;
@@ -303,7 +375,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         	}
         }
         
-        /**----------------------------------------------------------------- */
+        //-----------------------------------------------------------------
 
         if (!this.world.isRemote)
         {
@@ -395,9 +467,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
     
-    /**
-     * Damages the Pestle
-     */
+    
+    /**Apply damage to the pestle*/
     private void damagePestle(Item item, ItemStack itemstack)
     {
     	if(craftingSuccess == true) 
@@ -411,9 +482,10 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
 		craftingSuccess = false;
     }
 
-    /**
-     * Returns true if the mortar can grind an item, i.e. has a source item, destination stack isn't full, etc.
-     */
+    
+    
+    //--------------------------------------------------------------------------------------------------------------------------------
+    /**Returns true if the mortar can grind an item, i.e. has a source item, destination stack isn't full, etc.*/
     private boolean canGrind()
     {
         if (((ItemStack)this.inventoryMortar.get(0)).isEmpty() || ((ItemStack)this.inventoryMortar.get(1)).isEmpty())
@@ -447,6 +519,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
     
+    //--------------------------------------------------------------------------------------------------------------------------------
+    /**process an item*/
     public void grindItem()
     {
         if (this.canGrind())
@@ -472,7 +546,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
  
-    //gets grindtime related to the pestle used
+    //--------------------------------------------------------------------------------------------------------------------------------
+    /**gets grindtime related to the pestle used*/
     public static int getItemGrindTime(ItemStack pestle)
     {
     	Item item = pestle.getItem();
@@ -488,9 +563,8 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         return getItemGrindTime(stack) > 0;
     }
 
-    /**
-     * Don't rename this method to canInteractWith due to conflicts with Container
-     */
+    
+    //Don't rename this method to canInteractWith due to conflicts with Container
     @Override
     public boolean isUsableByPlayer(EntityPlayer player)
     {
@@ -504,16 +578,16 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
 
+    //--------------------------------------------------------------------------------------------------------------------------------
+    //playerinteraction
     @Override
     public void openInventory(EntityPlayer player) {}
 
     @Override
     public void closeInventory(EntityPlayer player) {}
+    //--------------------------------------------------------------------------------------------------------------------------------
     
-    /**
-     * Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot. For
-     * guis use Slot.isItemValid
-     */
+    /**Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot. For guis use Slot.isItemValid*/
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack)
     {
@@ -531,6 +605,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }								
     }
     
+    //
     public int[] getSlotsForFace(EnumFacing side)
     {
         if (side == EnumFacing.DOWN)
@@ -543,17 +618,15 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         }
     }
     
-    /**
-     * Returns true if automation can insert the given item in the given slot from the given side.
-     */
+    
+    /**Returns true if automation can insert the given item in the given slot from the given side.*/
     public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction)
     {
         return this.isItemValidForSlot(index, itemStackIn);
     }
 
-    /**
-     * Returns true if automation can extract the given item in the given slot from the given side.
-     */
+    
+    /**Returns true if automation can extract the given item in the given slot from the given side.*/
     public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction)
     {
         if (direction == EnumFacing.DOWN && index == 1)
@@ -569,58 +642,10 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
         return true;
     }
     
-    public String getGuiID()
-    {
-        return Reference.MOD_ID + ":mortar_block";
-    }
-    
     public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)
     {
         return new ContainerMortar(playerInventory, this);
         //import container mortar
-    }
-    
-    @Override
-    public int getField(int id)
-    {
-        switch (id)
-        {
-            case 0:
-                return this.pestleTime;
-            case 1:
-                return this.currentPestleTime;
-            case 2:
-                return this.grindTime;
-            case 3:
-                return this.totalGrindTime;
-            default:
-                return 0;
-        }
-    }
-    
-    @Override
-    public void setField(int id, int value)
-    {
-        switch (id)
-        {
-            case 0:
-                this.pestleTime = value;
-                break;
-            case 1:
-                this.currentPestleTime = value;
-                break;
-            case 2:
-                this.grindTime = value;
-                break;
-            case 3:
-                this.totalGrindTime = value;
-        }
-    }
-    
-    @Override
-    public int getFieldCount()
-    {
-        return 4;
     }
     
     @Override
@@ -631,7 +656,7 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     
     
     //-------------------------------------------------------------
-    //calculate the blockstate for the animation
+    /**calculate the blockstate for the animation*/
     public int calcState(int ctime)
     {
     	int step;
@@ -642,12 +667,11 @@ public class TileEntityMortarBlock extends TileEntity implements IInventory, ITi
     }
     
     //-------------------------------------------------------------
-    //make pestle appear if there is one in the inventory
+    /**make pestle appear if there is one in the inventory*/
     public void showPestle()
     {
     	if(!pestleState && !inventoryMortar.get(pestleSlot).isEmpty()) 
     	{
-    		System.out.println("hello world");
     		MortarBlock.setStatePestle(true, world, pos);
     		pestleState = true;
     	}

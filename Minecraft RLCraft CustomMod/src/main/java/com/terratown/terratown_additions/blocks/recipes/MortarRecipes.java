@@ -14,6 +14,11 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+/**
+ * This class defines crafting recipes for the mortar
+ * @author KamiKatze
+ */
+
 public class MortarRecipes 
 {
 	private static final MortarRecipes INSTANCE = new MortarRecipes();
@@ -27,8 +32,10 @@ public class MortarRecipes
 	
 	private MortarRecipes() 
 	{
-		//add Recipes here
-		//-----------1st: 2 dif petal -> dye | 2nd: 2 dif dye -> dye----------
+		/**	add Recipes here
+		 *	---------------------1st: 2 dif petal -> dye | 2nd: 2 dif dye -> dye--------------------
+		 */
+		
 		//1 orange
 		addMortarRecipes(new ItemStack(ModItems.PETAL_YELLOW, 1), 
 				new ItemStack(ModItems.PETAL_RED, 1), 
@@ -110,7 +117,8 @@ public class MortarRecipes
 				new ItemStack(ModItems.WHITE_DYE),
 				new ItemStack(Items.DYE, 2, EnumDyeColor.GRAY.getDyeDamage()), 0.1F);
 		
-		//---------- 2 same petal -> 2 dye ------------
+		/**-------------------- 2 same petal -> 2 dye ----------------------*/
+		
 		//10 red petal
 		addMortarRecipes(new ItemStack(ModItems.PETAL_RED, 1),
 				new ItemStack(ModItems.PETAL_RED, 1),
@@ -158,6 +166,8 @@ public class MortarRecipes
 		
 	}
 	
+	//------------------------------------------------------------------------------------------------------------
+	//define recipe
 	public void addMortarRecipes(ItemStack input1, ItemStack input2, ItemStack result, float experience)
 	{
 		if(getGrindingResult(input1, input2) != ItemStack.EMPTY) {return;}
@@ -165,6 +175,7 @@ public class MortarRecipes
 		this.experienceList.put(result, Float.valueOf(experience));
 	}
 	
+	//give result of crafting
 	public ItemStack getGrindingResult(ItemStack input1, ItemStack input2)
 	{
 		for(Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.grindingList.columnMap().entrySet())
@@ -183,6 +194,7 @@ public class MortarRecipes
 		return ItemStack.EMPTY;
 	}
 	
+	//------------------------------------------------------------------------------------------------------------
 	private boolean compareItemStacks(ItemStack stack1, ItemStack stack2) {
 		return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 
 				|| stack2.getMetadata() == stack1.getMetadata());
@@ -193,6 +205,7 @@ public class MortarRecipes
 		return this.grindingList;
 	}
 	
+	//method returns how much experience to give to player
 	public float getGrindingExperience(ItemStack stack)
 	{
 		for(Entry<ItemStack, Float> entry : this.experienceList.entrySet())

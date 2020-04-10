@@ -21,8 +21,10 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+/**contains all block/blockclasses which need to be added to the game*/
 public class ModBlocks
 {
+	/**contains blocks*/
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 	
 	//List of blocks with name and type of block

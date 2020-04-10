@@ -21,8 +21,10 @@ import com.terratown.terratown_additions.items.ItemBaseXPTome;
 import com.terratown.terratown_additions.items.ModDye;
 import com.terratown.terratown_additions.items.Pestle;
 
+/** contains all itemclasses which need to be added to the game*/
 public class ModItems
 {
+	/**contains items*/
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	
 	//list of items with name

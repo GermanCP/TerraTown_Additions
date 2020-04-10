@@ -14,10 +14,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * This class defines the item-container for the mortar-block
+ * @author KamiKatze
+ */
+
 public class ContainerMortar extends Container
 {
 	private final TileEntityMortarBlock tileentity;
 
+	//time variables for crafting
 	private int pestleTime;
 	private int currentPestleTime;
 	private int grindTime;
@@ -27,17 +33,20 @@ public class ContainerMortar extends Container
 	{
 		this.tileentity = tileentity;
 		
+		//add slots to container
 		this.addSlotToContainer(new Slot(tileentity, 0, 56, 17));
 		this.addSlotToContainer(new Slot(tileentity, 1, 56, 53));
 		this.addSlotToContainer(new SlotMortarBlockPestle(tileentity, 2, 33, 35));
 		this.addSlotToContainer(new SlotMortarBlockOutput(player.player, tileentity, 3, 116, 35));
 		
+		//create player inventory grid
 		for(int y = 0; y < 3; y++) {
 			for(int x = 0; x < 9; x++) {
 				this.addSlotToContainer(new Slot(player, x + y * 9 + 9, 8 + x * 18, 84 + y * 18));
 			}
 		}
 		
+		//add hotbar inventory grid
 		for(int x = 0; x < 9; x++) {
 			this.addSlotToContainer(new Slot(player, x, 8 + x * 18, 142));
 		}

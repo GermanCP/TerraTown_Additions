@@ -9,6 +9,12 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+/**
+ * This class defines the item-container for the fishglass-block
+ * @author GermanCreepPlay
+ */
+
+
 public class ContainerFishglass extends Container
 {
 	private final int numRows;
@@ -20,6 +26,7 @@ public class ContainerFishglass extends Container
 		this.numRows = tileentity.getSizeInventory() / 9;
 		tileentity.openInventory(player);
 		
+		//add slots to the fishglass container
 		for(int i = 0; i < this.numRows; i++)
 		{
 			for(int j = 0; j < 9; j++)
@@ -70,14 +77,19 @@ public class ContainerFishglass extends Container
 	@Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
     {
+		//makes items transferable into the fishglass inventory
+		
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.inventorySlots.get(index);
  
+        //check for slot being existant and having a ItemStack
         if (slot != null && slot.getHasStack())
         {
+        	//get Stack & create copy
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
  
+            //combine stacks
             if (index < this.numRows * 9)
             {
                 if (!this.mergeItemStack(itemstack1, this.numRows * 9, this.inventorySlots.size(), true))

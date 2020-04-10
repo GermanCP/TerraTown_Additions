@@ -3,8 +3,10 @@ package com.terratown.terratown_additions.init;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+/**contains all recipes to be added to the game*/
 public class ModRecipes {
 	
+	/**used to initilize recipes*/
 	public static void init()
 	{
 		//vanilla recipes

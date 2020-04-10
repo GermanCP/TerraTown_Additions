@@ -19,6 +19,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+/**
+ * This class defines the blocktype: breedable flower. Containing drops and seeds with wich to plant a certain flower. Hitbox alignment is also handled here.
+ * @author KamiKatze
+ */
+
 public class BreedableFlower extends BlockCrops
 {
     private static final AxisAlignedBB[] flower = new AxisAlignedBB[] {
@@ -31,12 +36,12 @@ public class BreedableFlower extends BlockCrops
     		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D), 
     		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)
     		};
-    private static ItemStack dyeResult;
+
     private static ItemStack PETAL;
     private static Item SEED;
     private String NAME;
 
-
+    /**Constructor*/
 	public BreedableFlower(String name) 
 	{
 		
@@ -48,18 +53,7 @@ public class BreedableFlower extends BlockCrops
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
 	}
 	
-	private void getDyeResult() 
-	{
-		if(NAME == "rose_bush") dyeResult = new ItemStack(Items.DYE, 3, EnumDyeColor.RED.getDyeDamage());
-		if(NAME == "tulip_orange") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.ORANGE.getDyeDamage());
-		if(NAME == "tulip_white") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage());
-		if(NAME == "tulip_pink") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.PINK.getDyeDamage());
-		if(NAME == "tulip_red") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage());
-		if(NAME == "dandelion") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.YELLOW.getDyeDamage());
-		if(NAME == "poppy") dyeResult = new ItemStack(Items.DYE, 1, EnumDyeColor.RED.getDyeDamage());
-		
-	}
-	
+	/**set Petal (Itemstack) to according item, based on flowers name*/
 	private void getPetal()
 	{
 		if(NAME == "rose_bush") PETAL = new ItemStack(ModItems.PETAL_RED);
@@ -77,6 +71,7 @@ public class BreedableFlower extends BlockCrops
 		if(NAME == "blue_orchid") PETAL = new ItemStack(ModItems.PETAL_LIGHT_BLUE);
 	}
 	
+	/**set Seed (Item) to according item, based on flowers name*/
 	private void getSeedByName() 
 	{
 		if(NAME == "rose_bush") SEED = ModItems.ROSE_CUTTING;
@@ -100,6 +95,7 @@ public class BreedableFlower extends BlockCrops
 		 
 	}
 	
+	/**Determines behaviour on right-click, if flower should drop petal (-> fully grown/age 7)*/
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, 
 			EnumFacing facing, float hitX, float hitY, float hitZ) 
@@ -117,6 +113,8 @@ public class BreedableFlower extends BlockCrops
 		return false;
 	}
 	
+	//--------------------------------------------------------------
+	//gets
 	
 	@Override
 	protected Item getSeed()
@@ -132,10 +130,12 @@ public class BreedableFlower extends BlockCrops
 		return SEED;
 	}
 	
+	//--------------------------------------------------------------
+	//bounding box
+	
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) 
-	{
-		
+	{		
 		return flower[((Integer)state.getValue(this.getAgeProperty())).intValue()];
 	}
 	
