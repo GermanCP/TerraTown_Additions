@@ -32,7 +32,7 @@ public class BreedableFlower extends BlockCrops
     		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)
     		};
     private static ItemStack dyeResult;
-    private static Item PETAL;
+    private static ItemStack PETAL;
     private static Item SEED;
     private String NAME;
 
@@ -62,19 +62,19 @@ public class BreedableFlower extends BlockCrops
 	
 	private void getPetal()
 	{
-		if(NAME == "rose_bush") PETAL = ModItems.PETAL_RED;
-		if(NAME == "tulip_orange") PETAL = ModItems.PETAL_ORANGE;
-		if(NAME == "tulip_white") PETAL = ModItems.PETAL_WHITE;
-		if(NAME == "tulip_pink") PETAL = ModItems.PETAL_PINK;
-		if(NAME == "tulip_red") PETAL = ModItems.PETAL_RED;
-		if(NAME == "dandelion") PETAL = ModItems.PETAL_YELLOW;
-		if(NAME == "poppy") PETAL = ModItems.PETAL_RED;
-		if(NAME == "cornflower") PETAL = ModItems.PETAL_BLUE;
-		if(NAME == "oxeye_daisy") PETAL = ModItems.PETAL_WHITE;
-		if(NAME == "allium") PETAL = ModItems.PETAL_MAGENTA;
-		if(NAME == "lily_of_the_valley") PETAL = ModItems.PETAL_WHITE;
-		if(NAME == "azure_bluet") PETAL = ModItems.PETAL_LIGHT_GRAY;
-		if(NAME == "blue_orchid") PETAL = ModItems.PETAL_BLUE;
+		if(NAME == "rose_bush") PETAL = new ItemStack(ModItems.PETAL_RED);
+		if(NAME == "tulip_orange") PETAL = new ItemStack(ModItems.PETAL_ORANGE);
+		if(NAME == "tulip_white") PETAL = new ItemStack(ModItems.PETAL_WHITE);
+		if(NAME == "tulip_pink") PETAL = new ItemStack(ModItems.PETAL_PINK);
+		if(NAME == "tulip_red") PETAL = new ItemStack(ModItems.PETAL_RED);
+		if(NAME == "dandelion") PETAL = new ItemStack(ModItems.PETAL_YELLOW);
+		if(NAME == "poppy") PETAL = new ItemStack(ModItems.PETAL_RED);
+		if(NAME == "cornflower") PETAL = new ItemStack(ModItems.PETAL_BLUE);
+		if(NAME == "oxeye_daisy") PETAL = new ItemStack(ModItems.PETAL_WHITE);
+		if(NAME == "allium") PETAL = new ItemStack(ModItems.PETAL_MAGENTA);
+		if(NAME == "lily_of_the_valley") PETAL = new ItemStack(ModItems.PETAL_WHITE);
+		if(NAME == "azure_bluet") PETAL = new ItemStack(ModItems.PETAL_LIGHT_GRAY);
+		if(NAME == "blue_orchid") PETAL = new ItemStack(ModItems.PETAL_LIGHT_BLUE);
 	}
 	
 	private void getSeedByName() 
@@ -89,7 +89,7 @@ public class BreedableFlower extends BlockCrops
 		if(NAME == "cornflower") SEED = ModItems.CORNFLOWER_SEED;
 		if(NAME == "oxeye_daisy") SEED = ModItems.OXEYE_DAISY_SEED;
 		if(NAME == "allium") SEED = ModItems.ALLIUM_NODULE;
-		if(NAME == "lily_of_the_valley") SEED = ModItems.LILY_OF_THE_VALLY_SEED;
+		if(NAME == "lily_of_the_valley") SEED = ModItems.LILY_OF_THE_VALLEY_SEED;
 		if(NAME == "azure_bluet") SEED = ModItems.AZURE_BLUET_SEED;
 		if(NAME == "blue_orchid") SEED = ModItems.BLUE_ORCHID_CUTTING;
 	}
@@ -108,8 +108,8 @@ public class BreedableFlower extends BlockCrops
 		{
 			if(this.isMaxAge(state))
 			{
-				getDyeResult();
-				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), dyeResult));
+				getPetal();
+				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), PETAL));
 				worldIn.setBlockState(pos, this.withAge(0));
 				return true;
 			}

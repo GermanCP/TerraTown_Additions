@@ -47,7 +47,7 @@ public class ModBlocks
 	public static final Block DANDELION = new BreedableFlower("dandelion");
 	public static final Block POPPY = new BreedableFlower("poppy");
 	public static final Block CORNFLOWER = new BreedableFlower("cornflower");
-	public static final Block OXEYE_DAISY = new BreedableFlower("oxeye_flower");
+	public static final Block OXEYE_DAISY = new BreedableFlower("oxeye_daisy");
 	public static final Block ALLIUM = new BreedableFlower("allium");
 	public static final Block LILY_OF_THE_VALLEY = new BreedableFlower("lily_of_the_valley");
 	public static final Block AZURE_BLUET = new BreedableFlower("azure_bluet");

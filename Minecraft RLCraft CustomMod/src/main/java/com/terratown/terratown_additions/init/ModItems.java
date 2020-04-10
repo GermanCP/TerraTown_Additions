@@ -49,7 +49,7 @@ public class ModItems
 	public static final Item CORNFLOWER_SEED = new FlowerSeeds("cornflower_seed");
 	public static final Item OXEYE_DAISY_SEED = new FlowerSeeds("oxeye_daisy_seed");
 	public static final Item ALLIUM_NODULE = new FlowerSeeds("allium_nodule");
-	public static final Item LILY_OF_THE_VALLY_SEED = new FlowerSeeds("lily_of_the_vally_seed");
+	public static final Item LILY_OF_THE_VALLEY_SEED = new FlowerSeeds("lily_of_the_valley_seed");
 	public static final Item AZURE_BLUET_SEED = new FlowerSeeds("azure_bluet_seed");
 	public static final Item BLUE_ORCHID_CUTTING = new FlowerSeeds("blue_orchid_cutting");
 	
@@ -62,10 +62,11 @@ public class ModItems
 	public static final Item PETAL_LIGHT_GRAY = new ItemBase("petal_light_gray", Main.tabFlower);
 	public static final Item PETAL_MAGENTA = new ItemBase("petal_magenta", Main.tabFlower);
 	public static final Item PETAL_BLUE = new ItemBase("petal_blue", Main.tabFlower);
+	public static final Item PETAL_LIGHT_BLUE = new ItemBase("petal_light_blue", Main.tabFlower);
 	
 	public static final Item BLUE_DYE = new ModDye("blue_dye", Main.tabFlower);
 	public static final Item WHITE_DYE = new ModDye("white_dye", Main.tabFlower);
-	public static final Item LIGHT_GRAY_DYE = new ModDye("light_gray_dye", Main.tabFlower);
+	public static final Item BROWN_DYE = new ModDye("brown_dye", Main.tabFlower);
 	
 	
 }

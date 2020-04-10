@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+                    "layer0": "terratown_additions:items/lily_of_the_valley_seed"
+                }
+}

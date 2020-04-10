@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "light_blue_dye",
+  "ingredients": [
+    {
+      "item": "minecraft:red_flower",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "terratown_additions:blue_orchid_cutting"
+  }
+}

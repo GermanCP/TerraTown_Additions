@@ -27,7 +27,7 @@ public class ModDye extends ItemBase{
 	private void getColorByName() {
 		if(NAME == "blue_dye") DYE_COLOR = EnumDyeColor.BLUE;
 		if(NAME == "white_dye") DYE_COLOR = EnumDyeColor.WHITE;
-		if(NAME == "light_gray_dye") DYE_COLOR = EnumDyeColor.SILVER;
+		if(NAME == "brown_dye") DYE_COLOR = EnumDyeColor.BROWN;
 	}
 	
 	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand)

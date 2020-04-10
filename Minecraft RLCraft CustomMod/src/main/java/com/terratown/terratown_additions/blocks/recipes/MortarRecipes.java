@@ -134,7 +134,7 @@ public class MortarRecipes
 		//15 light gray aka "silver"
 		addMortarRecipes(new ItemStack(ModItems.PETAL_LIGHT_GRAY, 1),
 				new ItemStack(ModItems.PETAL_LIGHT_GRAY, 1),
-				new ItemStack(ModItems.LIGHT_GRAY_DYE, 2), 0.1F);
+				new ItemStack(Items.DYE, 2, EnumDyeColor.SILVER.getDyeDamage()), 0.1F);
 		//16 orange petal
 		addMortarRecipes(new ItemStack(ModItems.PETAL_ORANGE, 1),
 				new ItemStack(ModItems.PETAL_ORANGE, 1),
@@ -147,6 +147,14 @@ public class MortarRecipes
 		addMortarRecipes(new ItemStack(ModItems.PETAL_MAGENTA, 1),
 				new ItemStack(ModItems.PETAL_MAGENTA, 1),
 				new ItemStack(Items.DYE, 2, EnumDyeColor.MAGENTA.getDyeDamage()), 0.1F);
+		//19 light blue
+		addMortarRecipes(new ItemStack(ModItems.PETAL_LIGHT_BLUE, 1),
+				new ItemStack(ModItems.PETAL_LIGHT_BLUE, 1),
+				new ItemStack(Items.DYE, 2, EnumDyeColor.LIGHT_BLUE.getDyeDamage()), 0.1F);
+		//20 brown coco
+		addMortarRecipes(new ItemStack(Items.DYE, 1, EnumDyeColor.BROWN.getDyeDamage()),
+				new ItemStack(Items.DYE, 1, EnumDyeColor.BROWN.getDyeDamage()),
+				new ItemStack(ModItems.BROWN_DYE, 2), 0.1F);
 		
 	}
 	

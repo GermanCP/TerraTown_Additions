@@ -52,13 +52,13 @@ public class FlowerSeeds extends Item implements IPlantable, IHasModel
 		if(NAME == "tulip_nodule_pink") CROPS = ModBlocks.TULIP_PINK;
 		if(NAME == "tulip_nodule_red") CROPS = ModBlocks.TULIP_RED;
 		if(NAME == "dandelion_seed") CROPS = ModBlocks.DANDELION;
-		if(NAME == "poppy") CROPS = ModBlocks.POPPY;
-		if(NAME == "cornflower") CROPS = ModBlocks.CORNFLOWER;
-		if(NAME == "oxeye_daisy") CROPS = ModBlocks.OXEYE_DAISY;
-		if(NAME == "allium") CROPS = ModBlocks.ALLIUM;
-		if(NAME == "lily_of_the_valley") CROPS = ModBlocks.LILY_OF_THE_VALLEY;
-		if(NAME == "azure_bluet") CROPS = ModBlocks.AZURE_BLUET;
-		if(NAME == "blue_orchid") CROPS = ModBlocks.BLUE_ORCHID;
+		if(NAME == "poppy_seed") CROPS = ModBlocks.POPPY;
+		if(NAME == "cornflower_seed") CROPS = ModBlocks.CORNFLOWER;
+		if(NAME == "oxeye_daisy_seed") CROPS = ModBlocks.OXEYE_DAISY;
+		if(NAME == "allium_nodule") CROPS = ModBlocks.ALLIUM;
+		if(NAME == "lily_of_the_valley_seed") CROPS = ModBlocks.LILY_OF_THE_VALLEY;
+		if(NAME == "azure_bluet_seed") CROPS = ModBlocks.AZURE_BLUET;
+		if(NAME == "blue_orchid_cutting") CROPS = ModBlocks.BLUE_ORCHID;
 	}
 
 	@Override
