@@ -11,8 +11,41 @@ tile.sugarcane_block_deco.name=Zuckerrohrballen
 container.mortar_block=Mörser
 
 //Plants
-tile.rose_bush.name=Rosen Busch
-item.rose_cutting.name=Rosensteckling
+tile.rose_bush.name=Rosenbusch
+item.rose_cutting.name=Rosen Steckling
+item.blue_orchid_cutting.name=Blauer Orchideen Steckling
+
+//Seeds
+item.cornflower_seed.name=Kornblumensamen
+item.azure_bluet_seed.name=Hufeisen-Azurjungfersamen
+item.dandelion_seed.name=Löwenzahnsamen
+item.poppy_seed.name=Mohnsamen
+item.oxeye_daisy_seed.name=Margeritensamen
+item.lily_of_the_valley_seed.name=Samen der Zweiblättrigen Schattenblume
+
+//Nodules
+item.tulip_nodule_red.name=Rote Tulpenzwiebel
+item.tulip_nodule_orange.name=Orange Tulpenzwiebel
+item.tulip_nodule_pink.name=Pinke Tulpenzwiebel
+item.tulip_nodule_white.name=Weiße Tulpenzwiebel
+item.allium_nodule.name=Lauchzwiebel
+
+//Petals
+item.petal_red.name=Rote Blütenblätter
+item.petal_white.name=Weiße Blütenblätter
+item.petal_light_gray.name=Graue Blütenblätter
+item.petal_magenta.name=Magentafarbene Blütenblätter
+item.petal_blue.name=Blaue Blütenblätter
+item.petal_pink.name=Pinke Blütenblätter
+item.petal_yellow.name=Gelbe Blütenblätter
+item.petal_orange.name=Orangene Blütenblätter
+item.petal_light_blue.name=Hellblaue Blütenblätter
+
+//Dye
+item.white_dye.name=Weiße Farbe
+item.blue_dye.name=Blauze Farbe
+item.brown_dye.name=Braune Farbe
+
 
 //Container
 container.fishglass=Fischglass

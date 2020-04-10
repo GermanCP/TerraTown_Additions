@@ -13,7 +13,38 @@ tile.mortar_block.name=Mortar
 //Plants
 tile.rose_bush.name=Rose Bush
 item.rose_cutting.name=Rose Cutting
+item.blue_orchid_cutting.name=Blue Orchid Cutting
 
+//Seeds
+item.cornflower_seed.name=Cornflower Seed
+item.azure_bluet_seed.name=Azure Bluet Seed
+item.dandelion_seed.name=Dandelion Seed
+item.poppy_seed.name=Poppy Seed
+item.oxeye_daisy_seed.name=Oxeye Daisy Seed
+item.lily_of_the_valley_seed.name=Lily of the Valley Seed
+
+//Nodules
+item.tulip_nodule_red.name=Red Tulip Nodule
+item.tulip_nodule_orange.name=Orange Tulip Nodule
+item.tulip_nodule_pink.name=Pink Tulip Nodule
+item.tulip_nodule_white.name=White Tulip Nodule
+item.allium_nodule.name=Allium Nodule
+
+//Petals
+item.petal_red.name=Red Petals
+item.petal_white.name=White Petals
+item.petal_light_gray.name=Gray Petals
+item.petal_magenta.name=Magenta Petals
+item.petal_blue.name=Blue Petals
+item.petal_pink.name=Pink Petals
+item.petal_yellow.name=Yellow Petals
+item.petal_orange.name=Orange Petals
+item.petal_light_blue.name=Light Blue Petals
+
+//Dye
+item.white_dye.name=White Dye
+item.blue_dye.name=Blue Dye
+item.brown_dye.name=Brown Dye
 
 //Container
 container.fishglass=Fishglass
