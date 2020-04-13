@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
@@ -57,11 +58,16 @@ public class RegistryHandler
 	
 	public static void preInitRegistries()
 	{
-		
+		EventHandler.registerEvents();
 	}
 	
-	public static void initRegistries() {
+	public static void initRegistries() 
+	{
 		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
 	}
 	
+	public static void postInitRegistries()
+	{
+		
+	}
 }
